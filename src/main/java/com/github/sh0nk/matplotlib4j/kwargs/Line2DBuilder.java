@@ -15,4 +15,9 @@ public interface Line2DBuilder<T extends Builder> extends KwargsBuilder {
     T label(String arg);
 
     T color(String arg);
+
+    T marker(String arg);
+
+    T markerSize(double arg);
+    
 }

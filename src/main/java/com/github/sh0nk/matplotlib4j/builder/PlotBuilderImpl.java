@@ -64,6 +64,16 @@ public class PlotBuilderImpl implements PlotBuilder {
     }
 
     @Override
+    public PlotBuilder marker(String arg) {
+        return line2DBuilder.marker(arg);
+    }
+
+    @Override
+    public PlotBuilder markerSize(double arg) {
+        return line2DBuilder.markerSize(arg);
+    }
+
+    @Override
     public String build() {
         return innerBuilder.build();
     }
