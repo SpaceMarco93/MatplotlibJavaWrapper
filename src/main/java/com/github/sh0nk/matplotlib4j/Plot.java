@@ -33,6 +33,10 @@ public interface Plot {
 
     LabelBuilder ylabel(String label);
 
+    LabelBuilder zlabel(String label);
+
+    GridBuilder grid(boolean flag);
+
     ScaleBuilder xscale(ScaleBuilder.Scale scale);
 
     ScaleBuilder yscale(ScaleBuilder.Scale scale);

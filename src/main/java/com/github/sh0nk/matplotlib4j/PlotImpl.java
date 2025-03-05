@@ -34,6 +34,13 @@ public class PlotImpl implements Plot {
     }
 
     @Override
+    public GridBuilder grid(boolean flag) {
+        GridBuilder builder = new GridBuilderImpl(flag);
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
     public void figure(String windowTitle) {
         registeredBuilders.add(new ArgsBuilderImpl("figure", windowTitle));
     }
@@ -65,6 +72,13 @@ public class PlotImpl implements Plot {
     @Override
     public LabelBuilder ylabel(String label) {
         LabelBuilder builder = LabelBuilderImpl.yLabelBuilder(label);
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
+    public LabelBuilder zlabel(String label) {
+        LabelBuilder builder = LabelBuilderImpl.zLabelBuilder(label);
         registeredBuilders.add(builder);
         return builder;
     }

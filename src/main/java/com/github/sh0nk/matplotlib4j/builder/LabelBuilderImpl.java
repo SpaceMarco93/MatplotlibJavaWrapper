@@ -18,6 +18,10 @@ public class LabelBuilderImpl implements LabelBuilder {
         return new LabelBuilderImpl(label, "ylabel");
     }
 
+    public static LabelBuilderImpl zLabelBuilder(String label) {
+        return new LabelBuilderImpl(label, "zlabel");
+    }
+
     @Override
     public String build() {
         return innerBuilder.build();
