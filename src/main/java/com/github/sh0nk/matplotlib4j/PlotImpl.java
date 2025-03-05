@@ -39,6 +39,18 @@ public class PlotImpl implements Plot {
     }
 
     @Override
+    public void figure3D(String windowTitle, boolean grid) {
+        registeredBuilders.add(new ArgsBuilderImpl("figure", windowTitle));
+        registeredBuilders.add(new AdditionalBuilderImpl("add_subplot", "projection", "3d"));
+        registeredBuilders.add(new AdditionalBuilderImpl("grid", "visible", grid));
+    }
+
+    @Override
+    public void threeDimensionalPlot() {
+        registeredBuilders.add(new ArgsBuilderImpl("subplots", new ArgsBuilderImpl("subplot_kw", "projection\":\"3d")));
+    }
+
+    @Override
     public void title(String title) {
         registeredBuilders.add(new ArgsBuilderImpl("title", title));
     }
@@ -187,7 +199,7 @@ public class PlotImpl implements Plot {
             scriptLines.add("mpl.use('Agg')");
         }
         scriptLines.add("import matplotlib.pyplot as plt");
-        registeredBuilders.forEach(b -> scriptLines.add(b.build()));
+        registeredBuilders.forEach(b -> { if (b instanceof AdditionalBuilderImpl){scriptLines.set(scriptLines.size()-1, scriptLines.get(scriptLines.size()-1).concat(b.build()));} else { scriptLines.add(b.build());}});
 
         // show
         if (!dryRun) {

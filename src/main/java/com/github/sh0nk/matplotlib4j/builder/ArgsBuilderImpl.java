@@ -24,6 +24,11 @@ public class ArgsBuilderImpl implements Builder {
         addStringToArgs(arg);
     }
 
+    public ArgsBuilderImpl(String key, ArgsBuilderImpl arg) {
+        this.key = key;
+        addKeyToArgs(arg);
+    }
+
     public ArgsBuilderImpl(String key, String arg1, String arg2) {
         this.key = key;
         addStringToArgs(arg1);
@@ -49,6 +54,19 @@ public class ArgsBuilderImpl implements Builder {
 
     private ArgsBuilderImpl addStringToArgs(Number v) {
         args.add(v);
+        return this;
+    }
+
+    private ArgsBuilderImpl addKeyToArgs(ArgsBuilderImpl v) {
+
+        // Get the list
+        List<Object> list = v.args;
+
+        // Extract the object from the list
+        Object [] array = list.toArray();
+
+        this.args.add(v.key + "={" + array[0] + "}");
+
         return this;
     }
 

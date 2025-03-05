@@ -34,6 +34,13 @@ public class PlotBuilderImpl implements PlotBuilder {
     }
 
     @Override
+    public PlotBuilder add(List<? extends Number> x, List<? extends Number> y, List<? extends Number> z) {
+        innerBuilder.addToArgs(x);
+        innerBuilder.addToArgs(y);
+        return innerBuilder.addToArgs(z);
+    }
+
+    @Override
     public PlotBuilder linestyle(String arg) {
         return line2DBuilder.linestyle(arg);
     }

@@ -33,3 +33,7 @@ build/
 
 # Main file
 src/main/java/com/github/sh0nk/matplotlib4j/Main.java
+
+# Python files
+*.py
+

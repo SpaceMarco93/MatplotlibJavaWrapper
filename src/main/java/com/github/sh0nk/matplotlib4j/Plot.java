@@ -23,6 +23,10 @@ public interface Plot {
      */
     void figure(String windowTitle);
 
+    void figure3D(String windowTitle, boolean grid);
+
+    void threeDimensionalPlot();
+
     void title(String title);
 
     LabelBuilder xlabel(String label);
