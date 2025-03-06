@@ -5,9 +5,7 @@ import com.github.sh0nk.matplotlib4j.builder.HistBuilder;
 import com.github.sh0nk.matplotlib4j.builder.ScaleBuilder;
 import org.junit.Assert;
 import org.junit.Ignore;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,10 +21,7 @@ public class MainTest {
     private static final boolean DRY_RUN = true;
 
     private final static Logger LOGGER = LoggerFactory.getLogger(MainTest.class);
-
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
-
+    
     @Test
     @Ignore("Only for local, could be supported by CI")
     public void testPlot() throws IOException, PythonExecutionException {
@@ -163,10 +158,9 @@ public class MainTest {
         plt.show();
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     @Ignore("Only for local, could be supported by CI")
     public void testPlotHistogramNoXError() throws IOException, PythonExecutionException {
-        expectedException.expect(IllegalArgumentException.class);
 
         Plot plt = new PlotImpl(DRY_RUN);
         plt.hist();

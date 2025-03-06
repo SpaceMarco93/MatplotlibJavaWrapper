@@ -2,12 +2,13 @@ package com.github.sh0nk.matplotlib4j;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
-import com.google.common.io.Files;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -95,14 +96,14 @@ public class PyCommand {
     }
 
     public void execute(String pythonScript) throws IOException, PythonExecutionException {
-        File tmpDir = Files.createTempDir();
-        tmpDir.deleteOnExit();
-        File script = new File(tmpDir, "exec.py");
+        Path tempDirectory = Files.createTempDirectory("myTempDir");
+        tempDirectory.toFile().deleteOnExit();
+        File script = new File(tempDirectory.toFile(), "exec.py");
 
         writeFile(pythonScript, script);
 
         String scriptPath = Paths.get(script.toURI()).toAbsolutePath().toString();
         command(buildCommandArgs(scriptPath));
-        tmpDir.delete();
+        tempDirectory.toFile().delete();
     }
 }

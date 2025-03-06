@@ -2,10 +2,7 @@ package com.github.sh0nk.matplotlib4j;
 
 import org.junit.Assert;
 import org.junit.Ignore;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
@@ -13,9 +10,6 @@ import java.util.Arrays;
 public class SaveFigTest {
 
     private static final boolean DRY_RUN = true;
-
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
 
     @Test
     @Ignore("Only for local, could be supported by CI")
