@@ -1,11 +1,36 @@
-apply plugin: 'java'
-apply plugin: 'maven-publish'
-apply plugin: 'signing'
+plugins {
+    // Apply the java plugin for compilation along with testing and bundling capabilities 
+    id 'java'
+    // Apply the plugin to publish the package
+    id 'maven-publish'
 
-group 'com.github.sh0nk'
-version '0.5.1-SNAPSHOT'
-archivesBaseName = "matplotlib4j"
-description = "MatplotlibJavaWrapper: Java wrapper to use Matplotlib library for the creation of both 2D and 3D plots"
+    id 'signing'
+}
+
+// Group and version information to publish the artifact
+group = 'com.github.sh0nk'
+version = '1.1.0'
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/spacemarco93/matplotlibjavawrapper")
+            credentials {
+                username = System.getenv("GITHUB_USERNAME")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            // Artifact id placed here to avoid error in package publication
+            artifactId = 'matplotlib-java-wrapper'
+            from(components.java)
+        }
+    }
+}
+
 
 base {
     archivesName = 'matplotlib4j'
@@ -28,12 +53,6 @@ tasks.withType(JavaCompile) {
 java {
     withJavadocJar()
     withSourcesJar()
-}
-
-publishing.publications {
-    mavenJava(MavenPublication) {
-        from components.java
-    }
 }
 
 repositories {

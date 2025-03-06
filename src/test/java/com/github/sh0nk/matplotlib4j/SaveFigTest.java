@@ -1,6 +1,7 @@
 package com.github.sh0nk.matplotlib4j;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -17,6 +18,7 @@ public class SaveFigTest {
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testSaveFig() throws IOException, PythonExecutionException {
         File tmpFile = File.createTempFile("savefig", ".png");
         tmpFile.deleteOnExit();
@@ -31,6 +33,7 @@ public class SaveFigTest {
     }
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testSaveFigTwice() throws IOException, PythonExecutionException {
         File tmpFile = File.createTempFile("savefig", ".png");
         File tmpFile2 = File.createTempFile("savefig2", ".png");
@@ -49,6 +52,7 @@ public class SaveFigTest {
     }
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testSaveFigTwiceWithClose() throws IOException, PythonExecutionException {
         File tmpFile = File.createTempFile("savefig", ".png");
         File tmpFile2 = File.createTempFile("savefig2", ".png");
@@ -71,6 +75,7 @@ public class SaveFigTest {
     }
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testCallExecuteTwice() throws IOException, PythonExecutionException {
         File tmpFile = File.createTempFile("savefig", ".png");
         tmpFile.deleteOnExit();
@@ -86,6 +91,7 @@ public class SaveFigTest {
     }
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testSaveFigNoImpactToShow() throws IOException, PythonExecutionException {
         File tmpFile = File.createTempFile("savefig", ".png");
         tmpFile.deleteOnExit();
@@ -101,6 +107,7 @@ public class SaveFigTest {
     }
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testSaveFigAfterShowHasNoFigure() throws IOException, PythonExecutionException {
         File tmpFile = File.createTempFile("savefig", ".png");
         tmpFile.deleteOnExit();

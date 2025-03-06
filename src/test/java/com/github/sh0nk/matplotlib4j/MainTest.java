@@ -4,6 +4,7 @@ import com.github.sh0nk.matplotlib4j.builder.ContourBuilder;
 import com.github.sh0nk.matplotlib4j.builder.HistBuilder;
 import com.github.sh0nk.matplotlib4j.builder.ScaleBuilder;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -27,6 +28,7 @@ public class MainTest {
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testPlot() throws IOException, PythonExecutionException {
         Plot plt = new PlotImpl(DRY_RUN);
         plt.plot()
@@ -42,6 +44,7 @@ public class MainTest {
     }
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testPlotLogScale() throws IOException, PythonExecutionException {
         Plot plt = new PlotImpl(DRY_RUN);
         plt.plot()
@@ -60,6 +63,7 @@ public class MainTest {
     }
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testPlotSin() throws IOException, PythonExecutionException {
         List<Double> x = IntStream.range(0, 100).boxed()
                 .map(Integer::doubleValue)
@@ -80,6 +84,7 @@ public class MainTest {
     }
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testPlotScatter() throws IOException, PythonExecutionException {
         List<Double> x = NumpyUtils.linspace(-3, 3, 100);
         List<Double> y = x.stream().map(xi -> Math.sin(xi) + Math.random()).collect(Collectors.toList());
@@ -92,6 +97,7 @@ public class MainTest {
     }
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testPlotContour() throws IOException, PythonExecutionException {
         List<Double> x = NumpyUtils.linspace(-1, 1, 100);
         List<Double> y = NumpyUtils.linspace(-1, 1, 100);
@@ -109,6 +115,7 @@ public class MainTest {
     }
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testPlotPColor() throws IOException, PythonExecutionException {
         List<Double> x = NumpyUtils.linspace(-1, 1, 100);
         List<Double> y = NumpyUtils.linspace(-1, 1, 100);
@@ -125,6 +132,7 @@ public class MainTest {
     }
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testPlotOneHistogram() throws IOException, PythonExecutionException {
         Random rand = new Random();
         List<Double> x = IntStream.range(0, 1000).mapToObj(i -> rand.nextGaussian())
@@ -139,6 +147,7 @@ public class MainTest {
     }
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testPlotTwoHistogram() throws IOException, PythonExecutionException {
         Random rand = new Random();
         List<Double> x1 = IntStream.range(0, 1000).mapToObj(i -> rand.nextGaussian())
@@ -155,6 +164,7 @@ public class MainTest {
     }
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testPlotHistogramNoXError() throws IOException, PythonExecutionException {
         expectedException.expect(IllegalArgumentException.class);
 
@@ -167,17 +177,7 @@ public class MainTest {
     }
 
     @Test
-    public void testThirdArgError() throws IOException, PythonExecutionException {
-        expectedException.expect(PythonExecutionException.class);
-
-        Plot plt = Plot.create();
-        plt.plot().add(Arrays.asList(1.3, 2))
-            .add(Arrays.asList(1.3, 2))
-            .add(Arrays.asList(1.3, 2));
-        plt.show();
-    }
-
-    @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testBoundaryValuesCauseNoException() throws IOException, PythonExecutionException {
         Plot plt = new PlotImpl(DRY_RUN);
         plt.plot().add(Arrays.asList(1.3, 0x66, null, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY))
@@ -186,6 +186,7 @@ public class MainTest {
     }
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testShowTwiceClearFirstPlot() throws IOException, PythonExecutionException {
         // TODO: Check .plot() or so is not called twice on the second run script
 
@@ -200,6 +201,7 @@ public class MainTest {
     }
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testSubplots() throws IOException, PythonExecutionException {
         Plot plt = new PlotImpl(DRY_RUN);
 

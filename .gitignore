@@ -31,9 +31,9 @@ hs_err_pid*
 .gradle/
 build/
 
-# Main file
-src/main/java/com/github/sh0nk/matplotlib4j/Main.java
-
 # Python files
 *.py
+
+# Main java file
+src/main/java/com/github/sh0nk/matplotlib4j/Main.java
 

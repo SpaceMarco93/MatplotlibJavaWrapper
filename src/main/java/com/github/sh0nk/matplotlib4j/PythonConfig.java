@@ -12,7 +12,7 @@ public class PythonConfig {
     }
 
     public static PythonConfig systemDefaultPythonConfig() {
-        return new PythonConfig(null, null, null);
+        return new PythonConfig(null, null, ".venv/bin/python3");
     }
 
     public static PythonConfig pyenvConfig(String pyenv) {

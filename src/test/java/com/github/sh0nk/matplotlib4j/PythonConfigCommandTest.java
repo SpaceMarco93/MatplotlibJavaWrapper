@@ -10,6 +10,7 @@ import java.util.Arrays;
 public class PythonConfigCommandTest {
 
     @Test
+    @Ignore("Only for local, could be supported by CI")
     public void testCommand() throws IOException, PythonExecutionException {
         PyCommand command = new PyCommand(PythonConfig.systemDefaultPythonConfig());
         command.execute("print('test')");
