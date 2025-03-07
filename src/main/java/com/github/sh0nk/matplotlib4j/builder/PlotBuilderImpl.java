@@ -1,5 +1,9 @@
 package com.github.sh0nk.matplotlib4j.builder;
 
+import com.github.sh0nk.matplotlib4j.enums.ColorType;
+import com.github.sh0nk.matplotlib4j.enums.LineStyleType;
+import com.github.sh0nk.matplotlib4j.enums.MarkerStyleType;
+import com.github.sh0nk.matplotlib4j.enums.ParametrizedLineStyleType;
 import com.github.sh0nk.matplotlib4j.kwargs.Line2DBuilder;
 import com.github.sh0nk.matplotlib4j.kwargs.Line2DBuilderImpl;
 import org.slf4j.Logger;
@@ -46,7 +50,27 @@ public class PlotBuilderImpl implements PlotBuilder {
     }
 
     @Override
+    public PlotBuilder linestyle(LineStyleType arg) {
+        return line2DBuilder.linestyle(arg);
+    }
+
+    @Override
+    public PlotBuilder linestyle(ParametrizedLineStyleType arg) {
+        return line2DBuilder.linestyle(arg);
+    }
+
+    @Override
     public PlotBuilder ls(String arg) {
+        return line2DBuilder.ls(arg);
+    }
+
+    @Override
+    public PlotBuilder ls(LineStyleType arg) {
+        return line2DBuilder.ls(arg);
+    }
+
+    @Override
+    public PlotBuilder ls(ParametrizedLineStyleType arg) {
         return line2DBuilder.ls(arg);
     }
 
@@ -71,13 +95,48 @@ public class PlotBuilderImpl implements PlotBuilder {
     }
 
     @Override
+    public PlotBuilder color(ColorType arg) {
+        return line2DBuilder.color(arg);
+    }
+
+    @Override
     public PlotBuilder marker(String arg) {
         return line2DBuilder.marker(arg);
     }
 
     @Override
+    public PlotBuilder marker(MarkerStyleType arg) {
+        return line2DBuilder.marker(arg);
+    }
+
+    @Override
+    public PlotBuilder markerColor(String arg) {
+        return line2DBuilder.markerColor(arg);
+    }
+
+    @Override
+    public PlotBuilder markerColor(ColorType arg) {
+        return line2DBuilder.markerColor(arg);
+    }
+
+    @Override
+    public PlotBuilder mec(String arg) {
+        return line2DBuilder.mec(arg);
+    }
+
+    @Override
+    public PlotBuilder mec(ColorType arg) {
+        return line2DBuilder.mec(arg);
+    }
+
+    @Override
     public PlotBuilder markerSize(double arg) {
         return line2DBuilder.markerSize(arg);
+    }
+
+    @Override
+    public PlotBuilder ms(double arg) {
+        return line2DBuilder.ms(arg);
     }
 
     @Override
