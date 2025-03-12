@@ -1,0 +1,186 @@
+package com.github.sh0nk.matplotlib4j.pyplot.builder;
+
+import com.github.sh0nk.matplotlib4j.enums.ColorType;
+import com.github.sh0nk.matplotlib4j.enums.FontNameType;
+import com.github.sh0nk.matplotlib4j.enums.FontSizeType;
+import com.github.sh0nk.matplotlib4j.enums.FontStretchType;
+import com.github.sh0nk.matplotlib4j.enums.FontStyleType;
+import com.github.sh0nk.matplotlib4j.enums.FontVariantType;
+import com.github.sh0nk.matplotlib4j.enums.FontWeightType;
+import com.github.sh0nk.matplotlib4j.enums.HorizonalAlighmentType;
+import com.github.sh0nk.matplotlib4j.enums.RotationModeType;
+import com.github.sh0nk.matplotlib4j.enums.RotationType;
+import com.github.sh0nk.matplotlib4j.enums.VerticalAlignmentType;
+import com.github.sh0nk.matplotlib4j.kwargs.TextArgsBuilder;
+import com.github.sh0nk.matplotlib4j.kwargs.TextArgsBuilderImpl;
+
+/**
+ * This class is implementing all the methods defined in the relative interface
+ * {@link LabelBuilder}.
+ * The first section defines the @Override of all the *args associated to this
+ * method, while the second section invokes all the **kwargs which are imported
+ * by the related object.
+ */
+public class LabelBuilderImpl implements LabelBuilder {
+
+    // Variable defining the builder for the main method
+    private CompositeBuilder<LabelBuilder> innerBuilder = new CompositeBuilder<>(this);
+
+    // Variable defining the builder for all the **kwargs
+    private TextArgsBuilder<LabelBuilder> kwargsBuilder = new TextArgsBuilderImpl<>(innerBuilder);
+
+    // Variable to distinguish between the use of the "xlabel" or "ylabel" methods
+    private String methodName;
+
+    // Default constructr
+    public LabelBuilderImpl() {}
+
+    // Public constructor
+    public LabelBuilderImpl(String methodName) {
+        this.methodName = methodName;
+    }
+
+    // public static LabelBuilderImpl xLabelBuilder(String label) {
+    //     return new LabelBuilderImpl(label, "xlabel");
+    // }
+
+    // public static LabelBuilderImpl yLabelBuilder(String label) {
+    //     return new LabelBuilderImpl(label, "ylabel");
+    // }
+
+    // *args section
+    @Override
+    public LabelBuilder xLabel(String arg) {
+        this.methodName = "xlabel";
+        return innerBuilder.addToArgs(arg);
+    }
+
+    @Override
+    public LabelBuilder yLabel(String arg) {
+        this.methodName = "ylabel";
+        return innerBuilder.addToArgs(arg);
+    }
+
+    @Override
+    public LabelBuilder loc(HorizonalAlighmentType arg) {
+        return innerBuilder.addToKwargs("loc", arg.getHorizontalAlignment());
+    }
+
+    // **kwargs section
+    @Override
+    public LabelBuilder alpha(double arg) {
+        return kwargsBuilder.alpha(arg);
+    }
+
+    @Override
+    public LabelBuilder backGroundColor(ColorType arg) {
+        return kwargsBuilder.backGroundColor(arg);
+    }
+
+    @Override
+    public LabelBuilder color(ColorType arg) {
+        return kwargsBuilder.color(arg);
+    }
+
+    @Override
+    public LabelBuilder fontSize(FontSizeType arg) {
+        return kwargsBuilder.fontSize(arg);
+    }
+
+    @Override
+    public LabelBuilder fontName(FontNameType arg) {
+        return kwargsBuilder.fontName(arg);
+    }
+
+    @Override
+    public LabelBuilder fontStretch(FontStretchType arg) {
+        return kwargsBuilder.fontStretch(arg);
+    }
+
+    @Override
+    public LabelBuilder fontStyle(FontStyleType arg) {
+        return kwargsBuilder.fontStyle(arg);
+    }
+
+    @Override
+    public LabelBuilder fontVariant(FontVariantType arg) {
+        return kwargsBuilder.fontVariant(arg);
+    }
+
+    @Override
+    public LabelBuilder fontWeight(FontWeightType arg) {
+        return kwargsBuilder.fontWeight(arg);
+    }
+
+    @Override
+    public LabelBuilder horizontalAlignment(HorizonalAlighmentType arg) {
+        return kwargsBuilder.horizontalAlignment(arg);
+    }
+
+    @Override
+    public LabelBuilder label(String arg) {
+        return kwargsBuilder.label(arg);
+    }
+
+    @Override
+    public LabelBuilder lineSpacing(double arg) {
+        return kwargsBuilder.lineSpacing(arg);
+    }
+
+    @Override
+    public LabelBuilder parseMath(boolean arg) {
+        return kwargsBuilder.parseMath(arg);
+    }
+
+    @Override
+    public LabelBuilder position(double x, double y) {
+        return kwargsBuilder.position(x, y);
+    }
+
+    @Override
+    public LabelBuilder rotation(RotationType arg) {
+        return kwargsBuilder.rotation(arg);
+    }
+
+    @Override
+    public LabelBuilder rotationMode(RotationModeType arg) {
+        return kwargsBuilder.rotationMode(arg);
+    }
+
+    @Override
+    public LabelBuilder text(String arg) {
+        return kwargsBuilder.text(arg);
+    }
+
+    @Override
+    public LabelBuilder useTex(boolean arg) {
+        return kwargsBuilder.useTex(arg);
+    }
+
+    @Override
+    public LabelBuilder verticalAlignment(VerticalAlignmentType arg) {
+        return kwargsBuilder.verticalAlignment(arg);
+    }
+
+    @Override
+    public LabelBuilder x(double arg) {
+        return kwargsBuilder.x(arg);
+    }
+
+    @Override
+    public LabelBuilder y(double arg) {
+        return kwargsBuilder.y(arg);
+    }
+
+    // Implement the builder interface methods    
+    @Override
+    public String build() {
+        return innerBuilder.build();
+    }
+
+    @Override
+    public String getMethodName() {
+        return this.methodName;
+    }
+
+}
