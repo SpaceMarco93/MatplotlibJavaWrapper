@@ -22,7 +22,7 @@
 hs_err_pid*
 
 # gradle wrapper
-!gradle/wrapper/*
+/gradle/wrapper/*
 
 # idea
 .idea
@@ -36,5 +36,8 @@ build/
 
 # Gitignore files
 src/main/java/com/github/sh0nk/matplotlib4j/.gitignore
+
+# VS code settings
+.vscode/
 
 
