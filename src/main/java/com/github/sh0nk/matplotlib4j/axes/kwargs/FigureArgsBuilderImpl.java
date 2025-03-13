@@ -1,21 +1,21 @@
-package com.github.sh0nk.matplotlib4j.kwargs;
+package com.github.sh0nk.matplotlib4j.axes.kwargs;
 
+import com.github.sh0nk.matplotlib4j.axes.builder.Builder3D;
+import com.github.sh0nk.matplotlib4j.axes.builder.CompositeAxesBuilder;
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.LayoutType;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.CompositeBuilder;
 
 /**
  * This class is implementing all the methods defined in the relative interface
  * {@link FigureArgsBuilder}.
  */
-public class FigureArgsBuilderImpl <T extends Builder> implements FigureArgsBuilder<T>{
+public class FigureArgsBuilderImpl <T extends Builder3D> implements FigureArgsBuilder<T>{
 
     // Define the instance of the CompositeBuilder 
-    private final CompositeBuilder<T> innerBuilder;
+    private final CompositeAxesBuilder<T> innerBuilder;
 
     // Public constructor accepting any method using Axes objects as **kwargs
-    public FigureArgsBuilderImpl(CompositeBuilder<T> innerBuilder) {
+    public FigureArgsBuilderImpl(CompositeAxesBuilder<T> innerBuilder) {
         this.innerBuilder = innerBuilder;
     }
 

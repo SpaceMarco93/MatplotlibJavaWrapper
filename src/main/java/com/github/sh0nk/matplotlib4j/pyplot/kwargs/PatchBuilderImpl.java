@@ -1,8 +1,8 @@
-package com.github.sh0nk.matplotlib4j.kwargs;
+package com.github.sh0nk.matplotlib4j.pyplot.kwargs;
 
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.LineStyleType;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder;
+import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder2D;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.CompositeBuilder;
 
 
@@ -10,7 +10,7 @@ import com.github.sh0nk.matplotlib4j.pyplot.builder.CompositeBuilder;
  * This class is implementing all the methods defined in the relative interface
  * {@link PatchBuilder}.
  */
-public class PatchBuilderImpl<T extends Builder> implements PatchBuilder<T> {
+public class PatchBuilderImpl<T extends Builder2D> implements PatchBuilder<T> {
 
     // Define the instance of the CompositeBuilder
     private final CompositeBuilder<T> innerBuilder;

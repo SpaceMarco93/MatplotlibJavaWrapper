@@ -11,7 +11,7 @@ import com.github.sh0nk.matplotlib4j.enums.PaperType;
  * 
  * matplotlib.pyplot.savefig(*args, **kwargs)
  */
-public interface SaveFigBuilder extends Builder {
+public interface SaveFigBuilder extends Builder2D {
 
     // If format is set, it determines the output format, and the file is saved as fname.
     SaveFigBuilder fName(String arg);

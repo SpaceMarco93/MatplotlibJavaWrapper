@@ -9,7 +9,7 @@ import com.github.sh0nk.matplotlib4j.enums.ScaleType;
  * matplotlib.pyplot.xscale(value, **kwargs)
  * matplotlib.pyplot.yscale(value, **kwargs)
  */
-public interface ScaleBuilder extends Builder {
+public interface ScaleBuilder extends Builder2D {
 
     // Set the x-axis' scale.
     ScaleBuilder xScale(ScaleType arg);

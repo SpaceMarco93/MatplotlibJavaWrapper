@@ -5,7 +5,7 @@ import com.github.sh0nk.matplotlib4j.PythonConfig;
 import com.github.sh0nk.matplotlib4j.PythonExecutionException;
 import com.github.sh0nk.matplotlib4j.enums.ScaleType;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.ArgsBuilderImpl;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder;
+import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder2D;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.ContourBuilder;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.ContourBuilderImpl;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.FigureBuilder;
@@ -56,7 +56,7 @@ import java.util.List;
 public class PlotImpl implements Plot {
 
     // Define the list storing all the builders invoked
-    protected List<Builder> registeredBuilders = new LinkedList<>();
+    protected List<Builder2D> registeredBuilders = new LinkedList<>();
 
     // Boolean variable to check if the default configuration is to be used
     private final boolean dryRun;
@@ -101,6 +101,7 @@ public class PlotImpl implements Plot {
     @Override
     public TitleBuilder title(String title) {
         TitleBuilder builder = new TitleBuilderImpl();
+        builder.add(title);
         registeredBuilders.add(builder);
         return builder;
     }

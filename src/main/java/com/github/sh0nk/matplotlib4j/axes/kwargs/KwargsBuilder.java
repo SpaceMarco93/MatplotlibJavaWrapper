@@ -1,4 +1,4 @@
-package com.github.sh0nk.matplotlib4j.kwargs;
+package com.github.sh0nk.matplotlib4j.axes.kwargs;
 
 /**
  * This is a generic interface that is extended by all the other interfaces

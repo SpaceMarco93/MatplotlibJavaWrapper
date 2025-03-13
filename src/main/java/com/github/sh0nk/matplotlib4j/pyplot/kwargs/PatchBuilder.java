@@ -1,8 +1,8 @@
-package com.github.sh0nk.matplotlib4j.kwargs;
+package com.github.sh0nk.matplotlib4j.pyplot.kwargs;
 
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.LineStyleType;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder;
+import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder2D;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.HistBuilder;
 
 /**
@@ -14,7 +14,7 @@ import com.github.sh0nk.matplotlib4j.pyplot.builder.HistBuilder;
  * matplotlib.pyplot.hist(*args, **kwargs)
  *
  */
-public interface PatchBuilder<T extends Builder> extends KwargsBuilder {
+public interface PatchBuilder<T extends Builder2D> extends KwargsBuilder {
 
     // Set the alpha value used for blending
     T alpha(double arg);

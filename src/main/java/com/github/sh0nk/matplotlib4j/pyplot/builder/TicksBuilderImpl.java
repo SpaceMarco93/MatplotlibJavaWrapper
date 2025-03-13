@@ -13,7 +13,8 @@ import com.github.sh0nk.matplotlib4j.enums.HorizonalAlighmentType;
 import com.github.sh0nk.matplotlib4j.enums.RotationModeType;
 import com.github.sh0nk.matplotlib4j.enums.RotationType;
 import com.github.sh0nk.matplotlib4j.enums.VerticalAlignmentType;
-import com.github.sh0nk.matplotlib4j.kwargs.TextArgsBuilderImpl;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.TextArgsBuilder;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.TextArgsBuilderImpl;
 
 /**
  * This class is implementing all the methods defined in the relative interface
@@ -28,7 +29,7 @@ public class TicksBuilderImpl implements TicksBuilder {
     private final CompositeBuilder<TicksBuilder> innerBuilder = new CompositeBuilder<>(this);
 
     // Variable defining the builder for all the **kwargs
-    private final TextArgsBuilderImpl<TicksBuilder> kwargsBuilder = new TextArgsBuilderImpl<TicksBuilder>(innerBuilder);
+    private final TextArgsBuilder<TicksBuilder> kwargsBuilder = new TextArgsBuilderImpl<TicksBuilder>(innerBuilder);
 
     // Variable to distinguish between the use of the "xticks" or "yticks" methods
     private String methodName;

@@ -12,8 +12,8 @@ import com.github.sh0nk.matplotlib4j.enums.LocationType;
 import com.github.sh0nk.matplotlib4j.enums.RotationModeType;
 import com.github.sh0nk.matplotlib4j.enums.RotationType;
 import com.github.sh0nk.matplotlib4j.enums.VerticalAlignmentType;
-import com.github.sh0nk.matplotlib4j.kwargs.TextArgsBuilder;
-import com.github.sh0nk.matplotlib4j.kwargs.TextArgsBuilderImpl;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.TextArgsBuilder;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.TextArgsBuilderImpl;
 
 /**
  * This class is implementing all the methods defined in the relative interface
@@ -31,6 +31,11 @@ public class TitleBuilderImpl implements TitleBuilder {
     private final TextArgsBuilder<TitleBuilder> kwargsBuilder = new TextArgsBuilderImpl<>(innerBuilder);
     
     // *args section
+    @Override
+    public TitleBuilder add(String arg) {
+        return innerBuilder.addToArgs(arg);
+    }
+
     @Override
     public TitleBuilder label(String arg) {
         return innerBuilder.addToKwargs("label", arg);

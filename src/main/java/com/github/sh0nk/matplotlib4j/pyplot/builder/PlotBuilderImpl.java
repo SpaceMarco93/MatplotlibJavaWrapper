@@ -5,8 +5,8 @@ import com.github.sh0nk.matplotlib4j.enums.DrawStyleType;
 import com.github.sh0nk.matplotlib4j.enums.LineStyleType;
 import com.github.sh0nk.matplotlib4j.enums.MarkerStyleType;
 import com.github.sh0nk.matplotlib4j.enums.ParametrizedLineStyleType;
-import com.github.sh0nk.matplotlib4j.kwargs.Line2DBuilder;
-import com.github.sh0nk.matplotlib4j.kwargs.Line2DBuilderImpl;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.Line2DBuilder;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.Line2DBuilderImpl;
 
 import java.util.List;
 

@@ -2,7 +2,7 @@ package com.github.sh0nk.matplotlib4j.pyplot.builder;
 
 import com.github.sh0nk.matplotlib4j.enums.GridAxisType;
 import com.github.sh0nk.matplotlib4j.enums.GridWhichType;
-import com.github.sh0nk.matplotlib4j.kwargs.Line2DBuilder;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.Line2DBuilder;
 
 /**
  * This interface is defining all the *args associated to the "grid" method
@@ -10,7 +10,7 @@ import com.github.sh0nk.matplotlib4j.kwargs.Line2DBuilder;
  * 
  * matplotlib.pyplot.grid(visible=None, which='major', axis='both', **kwargs)
  */
-public interface GridBuilder extends Builder, Line2DBuilder<GridBuilder> {
+public interface GridBuilder extends Builder2D, Line2DBuilder<GridBuilder> {
 
     // Whether to show the grid lines.
     GridBuilder visible(boolean flag);

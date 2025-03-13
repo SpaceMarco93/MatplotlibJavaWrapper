@@ -1,7 +1,9 @@
-package com.github.sh0nk.matplotlib4j.kwargs;
+package com.github.sh0nk.matplotlib4j.axes.kwargs;
 
 import java.util.ArrayList;
 
+import com.github.sh0nk.matplotlib4j.axes.builder.Builder3D;
+import com.github.sh0nk.matplotlib4j.axes.builder.CompositeAxesBuilder;
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.FontNameType;
 import com.github.sh0nk.matplotlib4j.enums.FontSizeType;
@@ -13,20 +15,18 @@ import com.github.sh0nk.matplotlib4j.enums.HorizonalAlighmentType;
 import com.github.sh0nk.matplotlib4j.enums.RotationModeType;
 import com.github.sh0nk.matplotlib4j.enums.RotationType;
 import com.github.sh0nk.matplotlib4j.enums.VerticalAlignmentType;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.CompositeBuilder;
 
 /**
  * This class is implementing all the methods defined in the relative interface
  * {@link TextArgsBuilder}.
  */
-public class TextArgsBuilderImpl<T extends Builder> implements TextArgsBuilder<T> {
+public class TextArgsBuilderImpl<T extends Builder3D> implements TextArgsBuilder<T> {
 
     // Define the instance of the CompositeBuilder 
-    public final CompositeBuilder<T> innerBuilder;
+    public final CompositeAxesBuilder<T> innerBuilder;
 
     // Public constructor accepting any method using Text objects as **kwargs
-    public TextArgsBuilderImpl(CompositeBuilder<T> innerBuilder) {
+    public TextArgsBuilderImpl(CompositeAxesBuilder<T> innerBuilder) {
         this.innerBuilder = innerBuilder;
     }
 

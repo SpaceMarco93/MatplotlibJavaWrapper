@@ -1,8 +1,7 @@
 package com.github.sh0nk.matplotlib4j.pyplot.builder;
 
 import com.github.sh0nk.matplotlib4j.enums.HorizonalAlighmentType;
-import com.github.sh0nk.matplotlib4j.kwargs.TextArgsBuilder;
-
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.TextArgsBuilder;
 
 /**
  * This interface is defining all the *args associated to the "xlabel" method and
@@ -11,7 +10,7 @@ import com.github.sh0nk.matplotlib4j.kwargs.TextArgsBuilder;
  * matplotlib.pyplot.xlabel(xlabel, fontdict=None, labelpad=None, *, loc=None, **kwargs)
  * matplotlib.pyplot.ylabel(xlabel, fontdict=None, labelpad=None, *, loc=None, **kwargs)
  */
-public interface LabelBuilder extends Builder, TextArgsBuilder<LabelBuilder> {
+public interface LabelBuilder extends Builder2D, TextArgsBuilder<LabelBuilder> {
 
     // Set the x-axis label text.
     LabelBuilder xLabel(String arg);

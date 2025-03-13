@@ -5,7 +5,11 @@ import com.google.common.base.Joiner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**
@@ -14,7 +18,7 @@ import java.util.stream.Collectors;
  *
  * @param <T> Owner builder class
  */
-public class CompositeBuilder<T extends Builder> implements Builder {
+public class CompositeBuilder<T extends Builder2D> implements Builder2D {
 
     // Unique instance of the logger
     private final static Logger LOGGER = LoggerFactory.getLogger(CompositeBuilder.class);

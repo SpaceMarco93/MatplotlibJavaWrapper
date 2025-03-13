@@ -18,7 +18,7 @@ import java.util.List;
  * It is obvious that this class becomes useless in case all the methods have a 
  * corresponding "interface" and "implementation" class.
  */
-public class ArgsBuilderImpl implements Builder {
+public class ArgsBuilderImpl implements Builder2D {
 
     // The unique instance of the logger
     private final static Logger LOGGER = LoggerFactory.getLogger(ArgsBuilderImpl.class);

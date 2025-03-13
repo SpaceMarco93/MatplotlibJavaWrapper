@@ -1,24 +1,26 @@
 package com.github.sh0nk.matplotlib4j.axes.builder;
 
 import com.github.sh0nk.matplotlib4j.TypeConversion;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.CompositeBuilder;
 import com.google.common.base.Joiner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**
- * {@link CompositeBuilder} handles positional arguments and keyword arguments to methods
+ * {@link CompositeAxesBuilder} handles positional arguments and keyword arguments to methods
  * by {@link #build()} call on behalf of the ownerBuilder with a common way.
  *
  * @param <T> Owner builder class
  */
-public class CompositeAxesBuilder<T extends Builder> implements Builder {
+public class CompositeAxesBuilder<T extends Builder3D> implements Builder3D {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(CompositeBuilder.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(CompositeAxesBuilder.class);
 
     private List<Object> args = new LinkedList<>();
     private Map<String, Object> kwargs = new HashMap<>();
@@ -93,11 +95,11 @@ public class CompositeAxesBuilder<T extends Builder> implements Builder {
         return ownerBuilder;
     }
 
-    public void beforeMethodOutput(String arg) {
+    public void setBeforeMethodOutput(String arg) {
         beforeMethodOutput = arg;
     }
 
-    public void afterMethodOutput(String arg) {
+    public void setAfterMethodOutput(String arg) {
         afterMethodOutput = arg;
     }
 
@@ -105,11 +107,15 @@ public class CompositeAxesBuilder<T extends Builder> implements Builder {
     public String build() {
         StringBuilder sb = new StringBuilder();
         if (beforeMethodOutput != null) {
-            sb.append(beforeMethodOutput).append('\n');
+            sb.append(beforeMethodOutput);
         }
 
         // retName
-        sb.append("ax.");
+        if (ownerBuilder instanceof FigureBuilder || ownerBuilder instanceof SaveFigBuilder){
+            sb.append("plt.");
+        } else {
+            sb.append("ax.");
+        }
         sb.append(ownerBuilder.getMethodName());
         sb.append("(");
 
@@ -128,7 +134,7 @@ public class CompositeAxesBuilder<T extends Builder> implements Builder {
         sb.append(")");
 
         if (afterMethodOutput != null) {
-            sb.append('\n').append(afterMethodOutput);
+            sb.append(afterMethodOutput);
         }
 
         String str = sb.toString();

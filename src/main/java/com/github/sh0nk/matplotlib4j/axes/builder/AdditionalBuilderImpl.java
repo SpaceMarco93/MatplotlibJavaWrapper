@@ -3,13 +3,12 @@ package com.github.sh0nk.matplotlib4j.axes.builder;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder;
 import com.google.common.base.Joiner;
 
 /*
  * 
  */
-public class AdditionalBuilderImpl implements Builder {
+public class AdditionalBuilderImpl implements Builder3D {
 
     private final String method;
     List<Object> args = new LinkedList<>();

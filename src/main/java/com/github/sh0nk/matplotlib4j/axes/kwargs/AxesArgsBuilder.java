@@ -1,12 +1,11 @@
-package com.github.sh0nk.matplotlib4j.kwargs;
+package com.github.sh0nk.matplotlib4j.axes.kwargs;
 
+import com.github.sh0nk.matplotlib4j.axes.builder.Builder3D;
 import com.github.sh0nk.matplotlib4j.enums.AdjutableType;
 import com.github.sh0nk.matplotlib4j.enums.AnchorType;
 import com.github.sh0nk.matplotlib4j.enums.AspectType;
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.ScaleType;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.SubplotBuilder;
 
 /**
  * This interface is defining all the **kwargs associated to the "Axes" method
@@ -16,7 +15,7 @@ import com.github.sh0nk.matplotlib4j.pyplot.builder.SubplotBuilder;
  * matplotlib.axes.Axes(fig, *args, **kwargs)
  *
  */
-public interface AxesArgsBuilder<T extends Builder> extends KwargsBuilder {
+public interface AxesArgsBuilder<T extends Builder3D> extends KwargsBuilder {
 
     // Set how the Axes adjusts to achieve the required aspect ratio.
     T adjustable(AdjutableType arg);

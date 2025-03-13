@@ -13,28 +13,29 @@ import com.github.sh0nk.matplotlib4j.enums.HorizonalAlighmentType;
 import com.github.sh0nk.matplotlib4j.enums.RotationModeType;
 import com.github.sh0nk.matplotlib4j.enums.RotationType;
 import com.github.sh0nk.matplotlib4j.enums.VerticalAlignmentType;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.LabelBuilder;
 
-public class Label3DBuilderImpl implements LabelBuilder {
+public class LabelBuilderImpl implements LabelBuilder {
 
     private CompositeAxesBuilder<LabelBuilder> innerBuilder = new CompositeAxesBuilder<>(this);
-    private final String methodName;
+    private String methodName;
 
-    public Label3DBuilderImpl(String label, String methodName) {
+    public LabelBuilderImpl(String methodName) {
         this.methodName = methodName;
-        innerBuilder.addToArgs(label);
     }
 
-    public static Label3DBuilderImpl xLabelBuilder(String label) {
-        return new Label3DBuilderImpl(label, "set_xlabel");
+    @Override
+    public LabelBuilder xLabel(String arg) {
+        return innerBuilder.addToArgs(arg);
     }
 
-    public static Label3DBuilderImpl yLabelBuilder(String label) {
-        return new Label3DBuilderImpl(label, "set_ylabel");
+    @Override
+    public LabelBuilder yLabel(String arg) {
+        return innerBuilder.addToArgs(arg);
     }
 
-    public static Label3DBuilderImpl zLabelBuilder(String label) {
-        return new Label3DBuilderImpl(label, "set_zlabel");
+    @Override
+    public LabelBuilder zLabel(String arg) {
+        return innerBuilder.addToArgs(arg);
     }
 
     @Override
@@ -138,16 +139,6 @@ public class Label3DBuilderImpl implements LabelBuilder {
     @Override
     public LabelBuilder y(double arg) {
         return innerBuilder.addToKwargs("y", arg);
-    }
-
-    @Override
-    public LabelBuilder xLabel(String arg) {
-        return innerBuilder.addToKwargs("xlabel", arg);
-    }
-
-    @Override
-    public LabelBuilder yLabel(String arg) {
-        return innerBuilder.addToKwargs("ylabel", arg);
     }
 
     @Override

@@ -1,13 +1,13 @@
-package com.github.sh0nk.matplotlib4j.kwargs;
+package com.github.sh0nk.matplotlib4j.axes.kwargs;
 
+import com.github.sh0nk.matplotlib4j.axes.builder.Builder3D;
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.DrawStyleType;
 import com.github.sh0nk.matplotlib4j.enums.LineStyleType;
 import com.github.sh0nk.matplotlib4j.enums.MarkerStyleType;
 import com.github.sh0nk.matplotlib4j.enums.ParametrizedLineStyleType;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder;
 
-public interface Line3DBuilder<T extends Builder> extends KwargsBuilder {
+public interface Line3DBuilder<T extends Builder3D> extends KwargsBuilder {
 
     T alpha(double arg);
 

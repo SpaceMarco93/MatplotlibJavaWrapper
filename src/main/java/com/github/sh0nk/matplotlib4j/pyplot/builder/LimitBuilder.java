@@ -7,7 +7,7 @@ package com.github.sh0nk.matplotlib4j.pyplot.builder;
  * matplotlib.pyplot.xlim(*args, **kwargs)
  * matplotlib.pyplot.xlim(*args, **kwargs)
  */
-public interface LimitBuilder extends Builder {
+public interface LimitBuilder extends Builder2D {
 
     // Set the x-axis boundaries.
     LimitBuilder xLim(Number left, Number right);

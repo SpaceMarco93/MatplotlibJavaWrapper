@@ -2,7 +2,7 @@ package com.github.sh0nk.matplotlib4j.pyplot.builder;
 
 import java.util.List;
 
-import com.github.sh0nk.matplotlib4j.kwargs.Line2DBuilder;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.Line2DBuilder;
 
 /**
  * This interface is defining all the *args associated to the "plot" method
@@ -10,7 +10,7 @@ import com.github.sh0nk.matplotlib4j.kwargs.Line2DBuilder;
  * 
  * matplotlib.pyplot.plot(*args, scalex=True, scaley=True, data=None, **kwargs)
  */
-public interface PlotBuilder extends Builder, Line2DBuilder<PlotBuilder> {
+public interface PlotBuilder extends Builder2D, Line2DBuilder<PlotBuilder> {
 
     // Set the vertical coordinates of the data points.
     PlotBuilder add(List<? extends Number> nums);

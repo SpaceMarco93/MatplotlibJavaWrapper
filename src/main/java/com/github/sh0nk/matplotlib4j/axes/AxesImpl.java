@@ -7,52 +7,68 @@ import java.util.List;
 import com.github.sh0nk.matplotlib4j.PyCommand;
 import com.github.sh0nk.matplotlib4j.PythonConfig;
 import com.github.sh0nk.matplotlib4j.PythonExecutionException;
-import com.github.sh0nk.matplotlib4j.axes.builder.AdditionalBuilderImpl;
-import com.github.sh0nk.matplotlib4j.axes.builder.AxesBuilder;
-import com.github.sh0nk.matplotlib4j.axes.builder.AxesBuilderImpl;
-import com.github.sh0nk.matplotlib4j.axes.builder.Label3DBuilderImpl;
+import com.github.sh0nk.matplotlib4j.axes.builder.ArgsBuilderImpl;
+import com.github.sh0nk.matplotlib4j.axes.builder.Builder3D;
+import com.github.sh0nk.matplotlib4j.axes.builder.FigureBuilder;
+import com.github.sh0nk.matplotlib4j.axes.builder.FigureBuilderImpl;
+import com.github.sh0nk.matplotlib4j.axes.builder.GridBuilder;
+import com.github.sh0nk.matplotlib4j.axes.builder.GridBuilderImpl;
+import com.github.sh0nk.matplotlib4j.axes.builder.LabelBuilder;
+import com.github.sh0nk.matplotlib4j.axes.builder.LabelBuilderImpl;
+import com.github.sh0nk.matplotlib4j.axes.builder.LegendBuilder;
+import com.github.sh0nk.matplotlib4j.axes.builder.LegendBuilderImpl;
+import com.github.sh0nk.matplotlib4j.axes.builder.LimitBuilder;
+import com.github.sh0nk.matplotlib4j.axes.builder.LimitBuilderImpl;
+import com.github.sh0nk.matplotlib4j.axes.builder.PlotBuilder;
+import com.github.sh0nk.matplotlib4j.axes.builder.PlotBuilderImpl;
+import com.github.sh0nk.matplotlib4j.axes.builder.SaveFigBuilder;
+import com.github.sh0nk.matplotlib4j.axes.builder.SaveFigBuilderImpl;
+import com.github.sh0nk.matplotlib4j.axes.builder.ScaleBuilder;
+import com.github.sh0nk.matplotlib4j.axes.builder.ScaleBuilderImpl;
+import com.github.sh0nk.matplotlib4j.axes.builder.TextBuilder;
+import com.github.sh0nk.matplotlib4j.axes.builder.TextBuilderImpl;
+import com.github.sh0nk.matplotlib4j.axes.builder.TicksBuilder;
+import com.github.sh0nk.matplotlib4j.axes.builder.TicksBuilderImpl;
+import com.github.sh0nk.matplotlib4j.axes.builder.TitleBuilder;
+import com.github.sh0nk.matplotlib4j.axes.builder.TitleBuilderImpl;
 import com.github.sh0nk.matplotlib4j.enums.ScaleType;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.ArgsBuilderImpl;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.ContourBuilder;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.ContourBuilderImpl;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.GridBuilder;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.GridBuilderImpl;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.HistBuilder;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.HistBuilderImpl;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.LabelBuilder;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.LegendBuilder;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.LegendBuilderImpl;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.SaveFigBuilder;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.SaveFigBuilderImpl;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.ScaleBuilder;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.ScaleBuilderImpl;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.SubplotBuilder;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.SubplotBuilderImpl;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.TextBuilder;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.TextBuilderImpl;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.TicksBuilder;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.TicksBuilderImpl;
-import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Joiner;
 
+/**
+ * This class implements the relative interface {@link Axes}. All the higher order
+ * methods defined in the linked documentation are implemented both in the generic
+ * or simplified way.
+ * 
+ * https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html
+ */
 public class AxesImpl implements Axes {
 
-    @VisibleForTesting
-    List<Builder> registeredBuilders = new LinkedList<>();
-    private List<Builder> showBuilders = new LinkedList<>();
+    // Define the list storing all the builders invoked
+    protected List<Builder3D> registeredBuilders = new LinkedList<>();
 
+    // Boolean variable to check if the default configuration is to be used
     private final boolean dryRun;
+
+    // Instance of the PythonConfiguration provided by the user
     private final PythonConfig pythonConfig;
 
-    AxesImpl(PythonConfig pythonConfig, boolean dryRun) {
+    // Constructor for the default configuration
+    public AxesImpl(PythonConfig pythonConfig, boolean dryRun) {
         this.pythonConfig = pythonConfig;
         this.dryRun = dryRun;
     }
 
-    @VisibleForTesting
-    AxesImpl(boolean dryRun) {
+    // Public full constructor
+    public AxesImpl(boolean dryRun) {
         this(PythonConfig.systemDefaultPythonConfig(), dryRun);
+    }
+
+    @Override
+    public FigureBuilder figure3D(String windowTitle) {
+        FigureBuilder builder = new FigureBuilderImpl("ax = ", ".add_subplot(projection='3d')");
+        builder.figureTitle(windowTitle);
+        registeredBuilders.add(builder);
+        return builder;
     }
 
     @Override
@@ -63,121 +79,180 @@ public class AxesImpl implements Axes {
     }
 
     @Override
-    public GridBuilder grid() {
+    public GridBuilder grid(boolean arg) {
         GridBuilder builder = new GridBuilderImpl();
+        builder.visible(arg);
         registeredBuilders.add(builder);
         return builder;
     }
 
     @Override
-    public void figure(String windowTitle) {
-        registeredBuilders.add(new ArgsBuilderImpl("figure", windowTitle));
-        registeredBuilders.add(new AdditionalBuilderImpl("add_subplot", "projection", "3d"));
-    }
-
-    @Override
-    public void title(String title) {
-        registeredBuilders.add(new ArgsBuilderImpl("title", title));
-    }
-
-    @Override
-    public LabelBuilder xlabel(String label) {
-        LabelBuilder builder = Label3DBuilderImpl.xLabelBuilder(label);
+    public TitleBuilder setTitle(String title) {
+        TitleBuilder builder = new TitleBuilderImpl();
+        builder.add(title);
         registeredBuilders.add(builder);
         return builder;
     }
 
     @Override
-    public LabelBuilder ylabel(String label) {
-        LabelBuilder builder = Label3DBuilderImpl.yLabelBuilder(label);
+    public LabelBuilder setXLabel(String label) {
+        LabelBuilder builder = new LabelBuilderImpl("set_xlabel");
+        builder.xLabel(label);
         registeredBuilders.add(builder);
         return builder;
     }
 
     @Override
-    public LabelBuilder zlabel(String label) {
-        LabelBuilder builder = Label3DBuilderImpl.zLabelBuilder(label);
+    public LabelBuilder setYLabel(String label) {
+        LabelBuilder builder = new LabelBuilderImpl("set_ylabel");
+        builder.yLabel(label);
         registeredBuilders.add(builder);
         return builder;
     }
 
     @Override
-    public ScaleBuilder xscale(ScaleType scale) {
-        ScaleBuilder builder = new ScaleBuilderImpl("xscale");
-        registeredBuilders.add(builder.xScale(scale));
+    public LabelBuilder setZLabel(String label) {
+        LabelBuilder builder = new LabelBuilderImpl("set_zlabel");
+        builder.zLabel(label);
+        registeredBuilders.add(builder);
         return builder;
     }
 
     @Override
-    public ScaleBuilder yscale(ScaleType scale) {
-        ScaleBuilder builder = new ScaleBuilderImpl("yscale");
-        registeredBuilders.add(builder.yScale(scale));
+    public ScaleBuilder setXScale(ScaleType scale) {
+        ScaleBuilder builder = new ScaleBuilderImpl("set_xscale");
+        builder.xScale(scale);
+        registeredBuilders.add(builder);
         return builder;
     }
 
     @Override
-    public void xlim(Number xmin, Number xmax) {
-        registeredBuilders.add(new ArgsBuilderImpl("xlim", xmin, xmax));
-    }
-
-    @Override
-    public void ylim(Number ymin, Number ymax) {
-        registeredBuilders.add(new ArgsBuilderImpl("ylim", ymin, ymax));
-    }
-
-    @Override
-    public TicksBuilder xticks(List<? extends Number> ticks) {
-        TicksBuilder builder = new TicksBuilderImpl("xticks");
-        registeredBuilders.add(builder.xTicks(ticks));
+    public ScaleBuilder setYScale(ScaleType scale) {
+        ScaleBuilder builder = new ScaleBuilderImpl("set_yscale");
+        builder.yScale(scale);
+        registeredBuilders.add(builder);
         return builder;
     }
 
     @Override
-    public TicksBuilder yticks(List<? extends Number> ticks) {
-        TicksBuilder builder = new TicksBuilderImpl("yticks");
-        registeredBuilders.add(builder.yTicks(ticks));
+    public ScaleBuilder setZScale(ScaleType scale) {
+        ScaleBuilder builder = new ScaleBuilderImpl("set_zscale");
+        builder.zScale(scale);
+        registeredBuilders.add(builder);
         return builder;
     }
 
     @Override
-    public TextBuilder text(double x, double y, String s) {
+    public LimitBuilder setXLim(Number xmin, Number xmax) {
+        LimitBuilder builder = new LimitBuilderImpl("set_xlim");
+        builder.xLim(xmin, xmax);
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
+    public LimitBuilder setYLim(Number ymin, Number ymax) {
+        LimitBuilder builder = new LimitBuilderImpl("set_ylim");
+        builder.yLim(ymin, ymax);
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
+    public LimitBuilder setZLim(Number zmin, Number zmax) {
+        LimitBuilder builder = new LimitBuilderImpl("set_zlim");
+        builder.zLim(zmin, zmax);
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
+    public TicksBuilder setXTicks(List<? extends Number> ticks) {
+        TicksBuilder builder = new TicksBuilderImpl("set_xticks");
+        builder.xTicks(ticks);
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
+    public TicksBuilder setXTicksAndLabels(List<Number> xTicks, List<String> labels) {
+        TicksBuilder builder = new TicksBuilderImpl("set_xticks");
+        builder.xTicks(xTicks);
+        builder.labels(labels);
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
+    public TicksBuilder setYTicks(List<? extends Number> ticks) {
+        TicksBuilder builder = new TicksBuilderImpl("set_yticks");
+        builder.yTicks(ticks);
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
+    public TicksBuilder setYTicksAndLabels(List<Number> yTicks, List<String> labels) {
+        TicksBuilder builder = new TicksBuilderImpl("set_yticks");
+        builder.yTicks(yTicks);
+        builder.labels(labels);
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
+    public TicksBuilder setZTicks(List<? extends Number> ticks) {
+        TicksBuilder builder = new TicksBuilderImpl("set_zticks");
+        builder.zTicks(ticks);
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
+    public TicksBuilder setZTicksAndLabels(List<Number> zTicks, List<String> labels) {
+        TicksBuilder builder = new TicksBuilderImpl("set_zticks");
+        builder.zTicks(zTicks);
+        builder.labels(labels);
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
+    public TextBuilder text(double x, double y, double z, String s) {
         TextBuilder builder = new TextBuilderImpl();
-        registeredBuilders.add(builder.add(x, y, s));
-        return builder;
-    }
-
-    @Override
-    public AxesBuilder plot() {
-        AxesBuilder builder = new AxesBuilderImpl();
+        builder.add(x, y, z, s);
         registeredBuilders.add(builder);
         return builder;
     }
 
     @Override
-    public ContourBuilder contour() {
-        ContourBuilder builder = new ContourBuilderImpl();
+    public PlotBuilder plot() {
+        PlotBuilder builder = new PlotBuilderImpl();
         registeredBuilders.add(builder);
         return builder;
     }
 
     @Override
-    public HistBuilder hist() {
-        HistBuilder builder = new HistBuilderImpl();
+    public PlotBuilder plot(List<? extends Number> x, List<? extends Number> y, List<? extends Number> z) {
+        PlotBuilder builder = new PlotBuilderImpl();
+        builder.add(x, y, z);
         registeredBuilders.add(builder);
         return builder;
     }
 
     @Override
-    public SaveFigBuilder savefig(String fname) {
+    public PlotBuilder plot(List<? extends Number> x, List<? extends Number> y, List<? extends Number> z, String fmt) {
+        PlotBuilder builder = new PlotBuilderImpl();
+        builder.add(x, y, z, fmt);
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
+    public SaveFigBuilder saveFig(String fname) {
         SaveFigBuilder builder = new SaveFigBuilderImpl();
-        registeredBuilders.add(builder.fName(fname));
-        return builder;
-    }
-
-    @Override
-    public SubplotBuilder subplot(int nrows, int ncols, int index) {
-        SubplotBuilder builder = new SubplotBuilderImpl();
-        registeredBuilders.add(builder.add(nrows, ncols, index));
+        builder.fName(fname);
+        registeredBuilders.add(builder);
         return builder;
     }
 
@@ -199,7 +274,6 @@ public class AxesImpl implements Axes {
         scriptLines.add("mpl.use('Agg')");
         scriptLines.add("import matplotlib.pyplot as plt");
         registeredBuilders.forEach(b -> scriptLines.add(b.build()));
-        showBuilders.forEach(b -> scriptLines.add(b.build()));
         PyCommand command = new PyCommand(pythonConfig);
         command.execute(Joiner.on('\n').join(scriptLines));
     }
@@ -217,9 +291,6 @@ public class AxesImpl implements Axes {
             scriptLines.add("mpl.use('Agg')");
         }
         scriptLines.add("import matplotlib.pyplot as plt");
-        scriptLines.add("ax = ".concat(registeredBuilders.get(0).build()).concat(registeredBuilders.get(1).build()));
-        registeredBuilders.remove(0);
-        registeredBuilders.remove(0);
         registeredBuilders.forEach(b ->  scriptLines.add(b.build()));
 
         // show

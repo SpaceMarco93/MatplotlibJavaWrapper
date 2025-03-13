@@ -7,7 +7,7 @@ package com.github.sh0nk.matplotlib4j.pyplot.builder;
  * 
  * plt."method"(*args, **kwargs)
  */
-public interface Builder {
+public interface Builder2D {
 
     // Build method to wrap the Java code in Python code
     String build();

@@ -2,8 +2,7 @@ package com.github.sh0nk.matplotlib4j.pyplot.builder;
 
 import java.util.List;
 
-import com.github.sh0nk.matplotlib4j.kwargs.TextArgsBuilder;
-
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.TextArgsBuilder;
 
 /**
  * This interface is defining all the *args associated to the "xticks" method and
@@ -12,7 +11,7 @@ import com.github.sh0nk.matplotlib4j.kwargs.TextArgsBuilder;
  * matplotlib.pyplot.xticks(ticks=None, labels=None, **kwargs)
  * matplotlib.pyplot.yticks(ticks=None, labels=None,  **kwargs)
  */
-public interface TicksBuilder extends Builder, TextArgsBuilder<TicksBuilder> {
+public interface TicksBuilder extends Builder2D, TextArgsBuilder<TicksBuilder> {
 
     // Set the list of xtick locations. Passing an empty list removes all xticks.
     TicksBuilder xTicks(List<? extends Number> ticks);

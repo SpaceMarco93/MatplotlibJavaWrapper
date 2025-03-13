@@ -9,7 +9,13 @@ import com.github.sh0nk.matplotlib4j.enums.LineStyleType;
 import com.github.sh0nk.matplotlib4j.enums.OriginType;
 import com.github.sh0nk.matplotlib4j.enums.ScaleType;
 
-public interface ContourBuilder extends Builder {
+/**
+ * This interface is defining all the *args associated to the "contour" method
+ * defined in pyplot. 
+ * 
+ * matplotlib.pyplot.contour(*args, **kwargs)
+ */
+public interface ContourBuilder extends Builder2D {
 
     /**
      * Equivalent to {@code pyplot.contour(Z)}

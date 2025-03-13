@@ -1,11 +1,11 @@
-package com.github.sh0nk.matplotlib4j.kwargs;
+package com.github.sh0nk.matplotlib4j.pyplot.kwargs;
 
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.DrawStyleType;
 import com.github.sh0nk.matplotlib4j.enums.LineStyleType;
 import com.github.sh0nk.matplotlib4j.enums.MarkerStyleType;
 import com.github.sh0nk.matplotlib4j.enums.ParametrizedLineStyleType;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder;
+import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder2D;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.PlotBuilder;
 
 /**
@@ -16,7 +16,7 @@ import com.github.sh0nk.matplotlib4j.pyplot.builder.PlotBuilder;
  * matplotlib.pyplot.plot(*args, **kwargs)
  *
  */
-public interface Line2DBuilder<T extends Builder> extends KwargsBuilder {
+public interface Line2DBuilder<T extends Builder2D> extends KwargsBuilder {
 
     // Set the alpha value used for blending
     T alpha(double arg);

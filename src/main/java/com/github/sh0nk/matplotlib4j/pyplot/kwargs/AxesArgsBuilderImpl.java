@@ -1,18 +1,18 @@
-package com.github.sh0nk.matplotlib4j.kwargs;
+package com.github.sh0nk.matplotlib4j.pyplot.kwargs;
 
 import com.github.sh0nk.matplotlib4j.enums.AdjutableType;
 import com.github.sh0nk.matplotlib4j.enums.AnchorType;
 import com.github.sh0nk.matplotlib4j.enums.AspectType;
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.ScaleType;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder;
+import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder2D;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.CompositeBuilder;
 
 /**
  * This class is implementing all the methods defined in the relative interface
  * {@link AxesArgsBuilder}.
  */
-public class AxesArgsBuilderImpl<T extends Builder> implements AxesArgsBuilder<T> {
+public class AxesArgsBuilderImpl<T extends Builder2D> implements AxesArgsBuilder<T> {
 
     // Define the instance of the CompositeBuilder 
     private final CompositeBuilder<T> innerBuilder;

@@ -6,8 +6,8 @@ import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.HistOrientationType;
 import com.github.sh0nk.matplotlib4j.enums.HistType;
 import com.github.sh0nk.matplotlib4j.enums.LineStyleType;
-import com.github.sh0nk.matplotlib4j.kwargs.PatchBuilder;
-import com.github.sh0nk.matplotlib4j.kwargs.PatchBuilderImpl;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.PatchBuilder;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.PatchBuilderImpl;
 import com.google.common.base.Joiner;
 import java.util.List;
 

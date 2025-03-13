@@ -6,8 +6,8 @@ import com.github.sh0nk.matplotlib4j.enums.AspectType;
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.ProjectionType;
 import com.github.sh0nk.matplotlib4j.enums.ScaleType;
-import com.github.sh0nk.matplotlib4j.kwargs.AxesArgsBuilder;
-import com.github.sh0nk.matplotlib4j.kwargs.AxesArgsBuilderImpl;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.AxesArgsBuilder;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.AxesArgsBuilderImpl;
 
 /**
  * This class is implementing all the methods defined in the relative interface

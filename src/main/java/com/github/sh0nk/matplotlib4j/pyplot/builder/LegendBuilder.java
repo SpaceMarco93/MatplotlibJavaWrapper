@@ -11,7 +11,7 @@ import com.github.sh0nk.matplotlib4j.enums.LocationType;
  * 
  * matplotlib.pyplot.legend(*args, **kwargs)
  */
-public interface LegendBuilder extends Builder {
+public interface LegendBuilder extends Builder2D {
 
     // The location of the legend.
     LegendBuilder loc(LocationType arg);

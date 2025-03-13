@@ -3,7 +3,7 @@ package com.github.sh0nk.matplotlib4j.pyplot.builder;
 import java.util.List;
 
 import com.github.sh0nk.matplotlib4j.enums.NonPositiveType;
-import com.github.sh0nk.matplotlib4j.kwargs.Line2DBuilder;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.Line2DBuilder;
 
 /**
  * This interface is defining all the *args associated to the "semilogx" method
@@ -11,7 +11,7 @@ import com.github.sh0nk.matplotlib4j.kwargs.Line2DBuilder;
  * 
  * matplotlib.pyplot.semilogyx(*args, **kwargs)
  */
-public interface SemiLogXBuilder extends Builder, Line2DBuilder<SemiLogXBuilder>{
+public interface SemiLogXBuilder extends Builder2D, Line2DBuilder<SemiLogXBuilder>{
 
     // Set the vertical coordinates of the data points.
     SemiLogXBuilder add(List<? extends Number> nums);

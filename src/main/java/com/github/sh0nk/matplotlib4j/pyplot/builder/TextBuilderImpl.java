@@ -11,8 +11,8 @@ import com.github.sh0nk.matplotlib4j.enums.HorizonalAlighmentType;
 import com.github.sh0nk.matplotlib4j.enums.RotationModeType;
 import com.github.sh0nk.matplotlib4j.enums.RotationType;
 import com.github.sh0nk.matplotlib4j.enums.VerticalAlignmentType;
-import com.github.sh0nk.matplotlib4j.kwargs.TextArgsBuilder;
-import com.github.sh0nk.matplotlib4j.kwargs.TextArgsBuilderImpl;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.TextArgsBuilder;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.TextArgsBuilderImpl;
 
 /**
  * This class is implementing all the methods defined in the relative interface

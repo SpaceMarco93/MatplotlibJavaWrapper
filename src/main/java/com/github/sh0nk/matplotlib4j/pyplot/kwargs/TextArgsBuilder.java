@@ -1,4 +1,4 @@
-package com.github.sh0nk.matplotlib4j.kwargs;
+package com.github.sh0nk.matplotlib4j.pyplot.kwargs;
 
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.FontNameType;
@@ -11,7 +11,7 @@ import com.github.sh0nk.matplotlib4j.enums.HorizonalAlighmentType;
 import com.github.sh0nk.matplotlib4j.enums.RotationModeType;
 import com.github.sh0nk.matplotlib4j.enums.RotationType;
 import com.github.sh0nk.matplotlib4j.enums.VerticalAlignmentType;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder;
+import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder2D;
 
 /**
  * This interface is defining all the **kwargs associated to the "text" method
@@ -21,7 +21,7 @@ import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder;
  * matplotlib.pyplot.text(*args, **kwargs)
  *
  */
-public interface TextArgsBuilder<T extends Builder> extends KwargsBuilder {
+public interface TextArgsBuilder<T extends Builder2D> extends KwargsBuilder {
 
     // Set the alpha value used for blending
     T alpha(double arg);

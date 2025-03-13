@@ -1,9 +1,8 @@
-package com.github.sh0nk.matplotlib4j.kwargs;
+package com.github.sh0nk.matplotlib4j.axes.kwargs;
 
+import com.github.sh0nk.matplotlib4j.axes.builder.Builder3D;
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.LayoutType;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.FigureBuilder;
 
 /**
  * This interface is defining all the **kwargs associated to the "figure" method
@@ -15,7 +14,7 @@ import com.github.sh0nk.matplotlib4j.pyplot.builder.FigureBuilder;
  * constrained_layout=None, layout=None, **kwargs)
  *
  */
-public interface FigureArgsBuilder<T extends Builder> extends KwargsBuilder {
+public interface FigureArgsBuilder<T extends Builder3D> extends KwargsBuilder {
 
     // Set the alpha value used for blending
     T alpha(double arg);

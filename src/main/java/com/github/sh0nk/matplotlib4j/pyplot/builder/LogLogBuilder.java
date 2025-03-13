@@ -3,7 +3,7 @@ package com.github.sh0nk.matplotlib4j.pyplot.builder;
 import java.util.List;
 
 import com.github.sh0nk.matplotlib4j.enums.NonPositiveType;
-import com.github.sh0nk.matplotlib4j.kwargs.Line2DBuilder;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.Line2DBuilder;
 
 /**
  * This interface is defining all the *args associated to the "loglog" method
@@ -11,7 +11,7 @@ import com.github.sh0nk.matplotlib4j.kwargs.Line2DBuilder;
  * 
  * matplotlib.pyplot.loglog(*args, **kwargs)
  */
-public interface LogLogBuilder extends Builder, Line2DBuilder<LogLogBuilder>{
+public interface LogLogBuilder extends Builder2D, Line2DBuilder<LogLogBuilder>{
 
     // Set the vertical coordinates of the data points.
     LogLogBuilder add(List<? extends Number> nums);

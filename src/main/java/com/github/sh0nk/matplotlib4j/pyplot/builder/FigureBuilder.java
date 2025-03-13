@@ -2,7 +2,7 @@ package com.github.sh0nk.matplotlib4j.pyplot.builder;
 
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.LayoutType;
-import com.github.sh0nk.matplotlib4j.kwargs.FigureArgsBuilder;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.FigureArgsBuilder;
 
 /**
  * This interface is defining all the *args associated to the "figure" method
@@ -10,7 +10,7 @@ import com.github.sh0nk.matplotlib4j.kwargs.FigureArgsBuilder;
  * 
  * matplotlib.pyplot.figure(*args, **kwargs)
  */
-public interface FigureBuilder extends Builder, FigureArgsBuilder<FigureBuilder> {
+public interface FigureBuilder extends Builder2D, FigureArgsBuilder<FigureBuilder> {
 
     // Set the title of the figure. It wraps the argument "num".
     FigureBuilder figureTitle(String arg);

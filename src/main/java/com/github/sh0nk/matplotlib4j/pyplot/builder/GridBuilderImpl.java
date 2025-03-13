@@ -7,8 +7,8 @@ import com.github.sh0nk.matplotlib4j.enums.GridWhichType;
 import com.github.sh0nk.matplotlib4j.enums.LineStyleType;
 import com.github.sh0nk.matplotlib4j.enums.MarkerStyleType;
 import com.github.sh0nk.matplotlib4j.enums.ParametrizedLineStyleType;
-import com.github.sh0nk.matplotlib4j.kwargs.Line2DBuilder;
-import com.github.sh0nk.matplotlib4j.kwargs.Line2DBuilderImpl;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.Line2DBuilder;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.Line2DBuilderImpl;
 
 /**
  * This class is implementing all the methods defined in the relative interface

@@ -7,13 +7,12 @@ import com.github.sh0nk.matplotlib4j.enums.BinEdgesType;
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.HistOrientationType;
 import com.github.sh0nk.matplotlib4j.enums.HistType;
-import com.github.sh0nk.matplotlib4j.kwargs.PatchBuilder;
-
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.PatchBuilder;
 
 /**
  * matplotlib.pyplot.hist(x, **kwargs)
  */
-public interface HistBuilder extends Builder, PatchBuilder<HistBuilder> {
+public interface HistBuilder extends Builder2D, PatchBuilder<HistBuilder> {
 
     // Input values, this takes either a single array
     HistBuilder addSingleSet(List<? extends Number> nums);

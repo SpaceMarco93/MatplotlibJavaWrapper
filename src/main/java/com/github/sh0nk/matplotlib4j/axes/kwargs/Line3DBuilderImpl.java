@@ -1,24 +1,18 @@
-package com.github.sh0nk.matplotlib4j.kwargs;
+package com.github.sh0nk.matplotlib4j.axes.kwargs;
 
+import com.github.sh0nk.matplotlib4j.axes.builder.Builder3D;
+import com.github.sh0nk.matplotlib4j.axes.builder.CompositeAxesBuilder;
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.DrawStyleType;
 import com.github.sh0nk.matplotlib4j.enums.LineStyleType;
 import com.github.sh0nk.matplotlib4j.enums.MarkerStyleType;
 import com.github.sh0nk.matplotlib4j.enums.ParametrizedLineStyleType;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder;
-import com.github.sh0nk.matplotlib4j.pyplot.builder.CompositeBuilder;
 
-/**
- * This class is implementing all the methods defined in the relative interface
- * {@link Line2DBuilder}.
- */
-public class Line2DBuilderImpl<T extends Builder> implements Line2DBuilder<T> {
+public class Line3DBuilderImpl<T extends Builder3D> implements Line3DBuilder<T> {
 
-    // Define the instance of the CompositeBuilder 
-    private final CompositeBuilder<T> innerBuilder;
+    private final CompositeAxesBuilder<T> innerBuilder;
 
-    // Public constructor accepting any method using Line2D objects as **kwargs
-    public Line2DBuilderImpl(CompositeBuilder<T> innerBuilder) {
+    public Line3DBuilderImpl(CompositeAxesBuilder<T> innerBuilder) {
         this.innerBuilder = innerBuilder;
     }
 
@@ -109,12 +103,12 @@ public class Line2DBuilderImpl<T extends Builder> implements Line2DBuilder<T> {
 
     @Override
     public T markerSize(double arg) {
-        return innerBuilder.addToKwargs("markersize", arg);
+        return innerBuilder.addToKwargs("markeredgewidth", arg);
     }
 
     @Override
     public T ms(double arg) {
-        return innerBuilder.addToKwargs("markersize", arg);
+        return innerBuilder.addToKwargs("markeredgewidth", arg);
     }
 
     @Override

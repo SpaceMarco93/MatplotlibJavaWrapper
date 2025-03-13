@@ -1,7 +1,7 @@
 package com.github.sh0nk.matplotlib4j.pyplot.builder;
 
 import com.github.sh0nk.matplotlib4j.enums.LocationType;
-import com.github.sh0nk.matplotlib4j.kwargs.TextArgsBuilder;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.TextArgsBuilder;
 
 /**
  * This interface is defining all the *args associated to the "title" method
@@ -9,9 +9,12 @@ import com.github.sh0nk.matplotlib4j.kwargs.TextArgsBuilder;
  * 
  * matplotlib.pyplot.title(*args, **kwargs)
  */
-public interface TitleBuilder extends Builder, TextArgsBuilder<TitleBuilder> {
+public interface TitleBuilder extends Builder2D, TextArgsBuilder<TitleBuilder> {
 
-    // Text to use for the title
+    // Add the title
+    TitleBuilder add(String arg);
+
+    // Text to use for the label
     TitleBuilder label(String arg);
 
     // Which title to set.

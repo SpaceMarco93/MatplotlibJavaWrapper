@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.LayoutType;
-import com.github.sh0nk.matplotlib4j.kwargs.FigureArgsBuilderImpl;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.FigureArgsBuilder;
+import com.github.sh0nk.matplotlib4j.pyplot.kwargs.FigureArgsBuilderImpl;
 
 /**
  * This class is implementing all the methods defined in the relative interface
@@ -19,7 +20,7 @@ public class FigureBuilderImpl implements FigureBuilder {
     private final CompositeBuilder<FigureBuilder> innerBuilder = new CompositeBuilder<>(this);
 
     // Variable defining the builder for all the **kwargs
-    private final FigureArgsBuilderImpl<FigureBuilder> kwargsBuilder = new FigureArgsBuilderImpl<>(innerBuilder);
+    private final FigureArgsBuilder<FigureBuilder> kwargsBuilder = new FigureArgsBuilderImpl<>(innerBuilder);
 
     public FigureBuilderImpl() {}
 
