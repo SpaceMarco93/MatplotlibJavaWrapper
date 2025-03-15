@@ -11,7 +11,7 @@ import com.github.sh0nk.matplotlib4j.enums.FontStretchType;
 import com.github.sh0nk.matplotlib4j.enums.FontStyleType;
 import com.github.sh0nk.matplotlib4j.enums.FontVariantType;
 import com.github.sh0nk.matplotlib4j.enums.FontWeightType;
-import com.github.sh0nk.matplotlib4j.enums.HorizonalAlighmentType;
+import com.github.sh0nk.matplotlib4j.enums.HorizontalAlignmentType;
 import com.github.sh0nk.matplotlib4j.enums.RotationModeType;
 import com.github.sh0nk.matplotlib4j.enums.RotationType;
 import com.github.sh0nk.matplotlib4j.enums.VerticalAlignmentType;
@@ -76,7 +76,7 @@ public class TextArgsBuilderImpl<T extends Builder3D> implements TextArgsBuilder
     }
 
     @Override
-    public T horizontalAlignment(HorizonalAlighmentType arg) {
+    public T horizontalAlignment(HorizontalAlignmentType arg) {
         return innerBuilder.addToKwargs("ha", arg.getHorizontalAlignment());
     }
 

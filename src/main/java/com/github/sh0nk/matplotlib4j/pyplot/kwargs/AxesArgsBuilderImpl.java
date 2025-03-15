@@ -1,6 +1,8 @@
 package com.github.sh0nk.matplotlib4j.pyplot.kwargs;
 
-import com.github.sh0nk.matplotlib4j.enums.AdjutableType;
+import java.util.List;
+
+import com.github.sh0nk.matplotlib4j.enums.AdjustableType;
 import com.github.sh0nk.matplotlib4j.enums.AnchorType;
 import com.github.sh0nk.matplotlib4j.enums.AspectType;
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
@@ -23,7 +25,7 @@ public class AxesArgsBuilderImpl<T extends Builder2D> implements AxesArgsBuilder
     }
 
     @Override
-    public T adjustable(AdjutableType arg) {
+    public T adjustable(AdjustableType arg) {
         return innerBuilder.addToKwargs("adjustable", arg.getAdjustable());
     }
 
@@ -115,8 +117,14 @@ public class AxesArgsBuilderImpl<T extends Builder2D> implements AxesArgsBuilder
     }
 
     @Override
-    public T xTicks(String arg) {
-        return innerBuilder.addToKwargs("xticks", arg);
+    public T xTicks(List<Number> ticks) {
+        return innerBuilder.addToArgs(ticks);
+    }
+
+    @Override
+    public T xTicks(List<Number> ticks, List<String> labels) {
+        innerBuilder.addToArgs(ticks);
+        return innerBuilder.addToArgs(labels);
     }
 
     @Override
@@ -142,10 +150,14 @@ public class AxesArgsBuilderImpl<T extends Builder2D> implements AxesArgsBuilder
     }
 
     @Override
-    public T yTicks(String arg) {
-        return innerBuilder.addToKwargs("yticks", arg);
+    public T yTicks(List<Number> ticks) {
+        return innerBuilder.addToArgs(ticks);
     }
 
-    
+    @Override
+    public T yTicks(List<Number> ticks, List<String> labels) {
+        innerBuilder.addToArgs(ticks);
+        return innerBuilder.addToArgs(labels);
+    }
 
 }

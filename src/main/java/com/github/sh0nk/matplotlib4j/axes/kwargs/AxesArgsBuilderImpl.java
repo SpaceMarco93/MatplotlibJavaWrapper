@@ -2,7 +2,7 @@ package com.github.sh0nk.matplotlib4j.axes.kwargs;
 
 import com.github.sh0nk.matplotlib4j.axes.builder.Builder3D;
 import com.github.sh0nk.matplotlib4j.axes.builder.CompositeAxesBuilder;
-import com.github.sh0nk.matplotlib4j.enums.AdjutableType;
+import com.github.sh0nk.matplotlib4j.enums.AdjustableType;
 import com.github.sh0nk.matplotlib4j.enums.AnchorType;
 import com.github.sh0nk.matplotlib4j.enums.AspectType;
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
@@ -23,7 +23,7 @@ public class AxesArgsBuilderImpl<T extends Builder3D> implements AxesArgsBuilder
     }
 
     @Override
-    public T adjustable(AdjutableType arg) {
+    public T adjustable(AdjustableType arg) {
         return innerBuilder.addToKwargs("adjustable", arg.getAdjustable());
     }
 

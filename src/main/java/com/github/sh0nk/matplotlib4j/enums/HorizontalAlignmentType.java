@@ -1,6 +1,6 @@
 package com.github.sh0nk.matplotlib4j.enums;
 
-public enum HorizonalAlighmentType {
+public enum HorizontalAlignmentType {
 
     // List of enum constants representing the horizontal alignments
     LEFT("left"),
@@ -9,7 +9,7 @@ public enum HorizonalAlighmentType {
 
     private String horizontalAlignment;
 
-    private HorizonalAlighmentType(String horizontalAlignment){
+    private HorizontalAlignmentType(String horizontalAlignment){
         this.horizontalAlignment = horizontalAlignment;
     }
 

@@ -9,7 +9,7 @@ import com.github.sh0nk.matplotlib4j.enums.FontStretchType;
 import com.github.sh0nk.matplotlib4j.enums.FontStyleType;
 import com.github.sh0nk.matplotlib4j.enums.FontVariantType;
 import com.github.sh0nk.matplotlib4j.enums.FontWeightType;
-import com.github.sh0nk.matplotlib4j.enums.HorizonalAlighmentType;
+import com.github.sh0nk.matplotlib4j.enums.HorizontalAlignmentType;
 import com.github.sh0nk.matplotlib4j.enums.LocationType;
 import com.github.sh0nk.matplotlib4j.enums.RotationModeType;
 import com.github.sh0nk.matplotlib4j.enums.RotationType;
@@ -103,7 +103,7 @@ public class TitleBuilderImpl implements TitleBuilder {
     }
 
     @Override
-    public TitleBuilder horizontalAlignment(HorizonalAlighmentType arg) {
+    public TitleBuilder horizontalAlignment(HorizontalAlignmentType arg) {
         return kwargsBuilder.horizontalAlignment(arg);
     }
 

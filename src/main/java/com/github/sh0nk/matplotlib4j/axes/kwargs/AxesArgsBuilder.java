@@ -1,7 +1,7 @@
 package com.github.sh0nk.matplotlib4j.axes.kwargs;
 
 import com.github.sh0nk.matplotlib4j.axes.builder.Builder3D;
-import com.github.sh0nk.matplotlib4j.enums.AdjutableType;
+import com.github.sh0nk.matplotlib4j.enums.AdjustableType;
 import com.github.sh0nk.matplotlib4j.enums.AnchorType;
 import com.github.sh0nk.matplotlib4j.enums.AspectType;
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
@@ -18,7 +18,7 @@ import com.github.sh0nk.matplotlib4j.enums.ScaleType;
 public interface AxesArgsBuilder<T extends Builder3D> extends KwargsBuilder {
 
     // Set how the Axes adjusts to achieve the required aspect ratio.
-    T adjustable(AdjutableType arg);
+    T adjustable(AdjustableType arg);
 
     // Set the alpha value used for blending
     T alpha(double arg);

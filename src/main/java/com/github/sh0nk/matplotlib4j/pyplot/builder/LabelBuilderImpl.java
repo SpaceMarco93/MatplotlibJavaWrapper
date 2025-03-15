@@ -7,7 +7,7 @@ import com.github.sh0nk.matplotlib4j.enums.FontStretchType;
 import com.github.sh0nk.matplotlib4j.enums.FontStyleType;
 import com.github.sh0nk.matplotlib4j.enums.FontVariantType;
 import com.github.sh0nk.matplotlib4j.enums.FontWeightType;
-import com.github.sh0nk.matplotlib4j.enums.HorizonalAlighmentType;
+import com.github.sh0nk.matplotlib4j.enums.HorizontalAlignmentType;
 import com.github.sh0nk.matplotlib4j.enums.RotationModeType;
 import com.github.sh0nk.matplotlib4j.enums.RotationType;
 import com.github.sh0nk.matplotlib4j.enums.VerticalAlignmentType;
@@ -40,14 +40,6 @@ public class LabelBuilderImpl implements LabelBuilder {
         this.methodName = methodName;
     }
 
-    // public static LabelBuilderImpl xLabelBuilder(String label) {
-    //     return new LabelBuilderImpl(label, "xlabel");
-    // }
-
-    // public static LabelBuilderImpl yLabelBuilder(String label) {
-    //     return new LabelBuilderImpl(label, "ylabel");
-    // }
-
     // *args section
     @Override
     public LabelBuilder xLabel(String arg) {
@@ -62,7 +54,7 @@ public class LabelBuilderImpl implements LabelBuilder {
     }
 
     @Override
-    public LabelBuilder loc(HorizonalAlighmentType arg) {
+    public LabelBuilder loc(HorizontalAlignmentType arg) {
         return innerBuilder.addToKwargs("loc", arg.getHorizontalAlignment());
     }
 
@@ -113,7 +105,7 @@ public class LabelBuilderImpl implements LabelBuilder {
     }
 
     @Override
-    public LabelBuilder horizontalAlignment(HorizonalAlighmentType arg) {
+    public LabelBuilder horizontalAlignment(HorizontalAlignmentType arg) {
         return kwargsBuilder.horizontalAlignment(arg);
     }
 

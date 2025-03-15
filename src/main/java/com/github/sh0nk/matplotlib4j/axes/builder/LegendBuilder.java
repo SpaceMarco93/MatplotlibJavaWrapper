@@ -2,7 +2,7 @@ package com.github.sh0nk.matplotlib4j.axes.builder;
 
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.FontSizeType;
-import com.github.sh0nk.matplotlib4j.enums.HorizonalAlighmentType;
+import com.github.sh0nk.matplotlib4j.enums.HorizontalAlignmentType;
 import com.github.sh0nk.matplotlib4j.enums.LocationType;
 
 /**
@@ -38,7 +38,7 @@ public interface LegendBuilder extends Builder3D {
     LegendBuilder edgeColor(ColorType arg);
 
     // The alignment of the legend title and the box of entries.
-    LegendBuilder alignment(HorizonalAlighmentType arg);
+    LegendBuilder alignment(HorizontalAlignmentType arg);
 
     // The vertical space between the legend entries
     LegendBuilder labelSpacing(double arg);

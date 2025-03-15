@@ -2,7 +2,7 @@ package com.github.sh0nk.matplotlib4j.pyplot.builder;
 
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.FontSizeType;
-import com.github.sh0nk.matplotlib4j.enums.HorizonalAlighmentType;
+import com.github.sh0nk.matplotlib4j.enums.HorizontalAlignmentType;
 import com.github.sh0nk.matplotlib4j.enums.LocationType;
 
 /**
@@ -62,7 +62,7 @@ public class LegendBuilderImpl implements LegendBuilder {
     }
 
     @Override
-    public LegendBuilder alignment(HorizonalAlighmentType arg) {
+    public LegendBuilder alignment(HorizontalAlignmentType arg) {
         return innerBuilder.addToKwargs("alignment", arg.getHorizontalAlignment());
     }
 

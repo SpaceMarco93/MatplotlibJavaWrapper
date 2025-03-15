@@ -11,10 +11,22 @@ import com.github.sh0nk.matplotlib4j.enums.ScaleType;
  */
 public interface ScaleBuilder extends Builder2D {
 
-    // Set the x-axis' scale.
+    /**
+     * Set the x-axis' scale.
+     * 
+     * @param arg   an instance of the {@link ScaleType} enum defining the axis 
+     *              scale
+     * @return  the instance of {@link ScaleBuilder} for method chain
+     */
     ScaleBuilder xScale(ScaleType arg);
 
-    // Set the y-axis' scale.
+    /**
+     * Set the y-axis' scale.
+     * 
+     * @param arg   an instance of the {@link ScaleType} enum defining the axis
+     *              scale
+     * @return  the instance of {@link ScaleBuilder} for method chain
+     */
     ScaleBuilder yScale(ScaleType arg);
 
 }

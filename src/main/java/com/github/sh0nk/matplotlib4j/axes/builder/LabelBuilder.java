@@ -1,7 +1,7 @@
 package com.github.sh0nk.matplotlib4j.axes.builder;
 
 import com.github.sh0nk.matplotlib4j.axes.kwargs.TextArgsBuilder;
-import com.github.sh0nk.matplotlib4j.enums.HorizonalAlighmentType;
+import com.github.sh0nk.matplotlib4j.enums.HorizontalAlignmentType;
 
 
 /**
@@ -24,6 +24,6 @@ public interface LabelBuilder extends Builder3D, TextArgsBuilder<LabelBuilder> {
     LabelBuilder zLabel(String arg);
 
     // Set the label position.
-    LabelBuilder loc(HorizonalAlighmentType arg);
+    LabelBuilder loc(HorizontalAlignmentType arg);
 
 }

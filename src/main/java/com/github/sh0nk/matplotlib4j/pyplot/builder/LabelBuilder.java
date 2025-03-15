@@ -1,6 +1,6 @@
 package com.github.sh0nk.matplotlib4j.pyplot.builder;
 
-import com.github.sh0nk.matplotlib4j.enums.HorizonalAlighmentType;
+import com.github.sh0nk.matplotlib4j.enums.HorizontalAlignmentType;
 import com.github.sh0nk.matplotlib4j.pyplot.kwargs.TextArgsBuilder;
 
 /**
@@ -12,13 +12,28 @@ import com.github.sh0nk.matplotlib4j.pyplot.kwargs.TextArgsBuilder;
  */
 public interface LabelBuilder extends Builder2D, TextArgsBuilder<LabelBuilder> {
 
-    // Set the x-axis label text.
+    /**
+     * Set the label text for the x-axis.
+     * 
+     * @param arg   the text to be displayed for the x-axis
+     * @return  the instance of {@link LabelBuilder} for method chain
+     */
     LabelBuilder xLabel(String arg);
 
-    // Set the y-axis label text.
+    /**
+     * Set the label text for the y-axis.
+     * 
+     * @param arg   the text to be displayed for the y-axis
+     * @return  the instance of {@link LabelBuilder} for method chain
+     */
     LabelBuilder yLabel(String arg);
 
-    // Set the label position.
-    LabelBuilder loc(HorizonalAlighmentType arg);
+    /**
+     * Set the label text position.
+     * 
+     * @param arg   an instance of the {@link HorizontalAlignmentType} enum
+     * @return  the instance of {@link LabelBuilder} for method chain
+     */
+    LabelBuilder loc(HorizontalAlignmentType arg);
 
 }

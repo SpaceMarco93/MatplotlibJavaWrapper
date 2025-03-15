@@ -11,10 +11,25 @@ import com.github.sh0nk.matplotlib4j.pyplot.kwargs.AxesArgsBuilder;
  */
 public interface SubplotBuilder extends Builder2D, AxesArgsBuilder<SubplotBuilder> {
 
-    // The position of the subplot described the three integers
-    SubplotBuilder add(int x, int y, int index);
+    /**
+     * Add the grid dimension and positional index.
+     * <p>This method is used to set the grid number of rows and columns and also
+     * to specify the grid entry where next plot will be displayed.</p>
+     * 
+     * @param nRows     the grid rows number
+     * @param nCols     the grid columns number
+     * @param index     the grid entry where next plot is displayed
+     * @return  the instance of {@link SubplotBuilder} for method chain
+     */
+    SubplotBuilder add(int nRows, int nCols, int index);
 
-    // The projection type of the subplot
+    /**
+     * Set the projection type of the subplot
+     * 
+     * @param arg   an instance of the {@link ProjectionType} enum defining the 
+     *              projection type of the subplot
+     * @return  the instance of {@link SubplotBuilder} for method chain
+     */
     SubplotBuilder projection(ProjectionType arg);
 
 }

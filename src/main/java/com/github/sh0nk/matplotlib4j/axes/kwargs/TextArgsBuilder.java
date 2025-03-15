@@ -8,7 +8,7 @@ import com.github.sh0nk.matplotlib4j.enums.FontStretchType;
 import com.github.sh0nk.matplotlib4j.enums.FontStyleType;
 import com.github.sh0nk.matplotlib4j.enums.FontVariantType;
 import com.github.sh0nk.matplotlib4j.enums.FontWeightType;
-import com.github.sh0nk.matplotlib4j.enums.HorizonalAlighmentType;
+import com.github.sh0nk.matplotlib4j.enums.HorizontalAlignmentType;
 import com.github.sh0nk.matplotlib4j.enums.RotationModeType;
 import com.github.sh0nk.matplotlib4j.enums.RotationType;
 import com.github.sh0nk.matplotlib4j.enums.VerticalAlignmentType;
@@ -51,7 +51,7 @@ public interface TextArgsBuilder<T extends Builder3D> extends KwargsBuilder {
     T fontWeight(FontWeightType arg);
 
     // Set the horizontal alignment relative to the anchor point.
-    T horizontalAlignment(HorizonalAlighmentType arg);
+    T horizontalAlignment(HorizontalAlignmentType arg);
 
     // Set a label that will be displayed in the legend.
     T label(String arg);

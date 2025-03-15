@@ -7,6 +7,10 @@ import com.github.sh0nk.matplotlib4j.enums.LineStyleType;
 import com.github.sh0nk.matplotlib4j.enums.MarkerStyleType;
 import com.github.sh0nk.matplotlib4j.enums.ParametrizedLineStyleType;
 
+/**
+ * 
+ * https://matplotlib.org/stable/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D
+ */
 public interface Line3DBuilder<T extends Builder3D> extends KwargsBuilder {
 
     T alpha(double arg);

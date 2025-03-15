@@ -1,6 +1,8 @@
 package com.github.sh0nk.matplotlib4j.pyplot.builder;
 
-import com.github.sh0nk.matplotlib4j.enums.AdjutableType;
+import java.util.List;
+
+import com.github.sh0nk.matplotlib4j.enums.AdjustableType;
 import com.github.sh0nk.matplotlib4j.enums.AnchorType;
 import com.github.sh0nk.matplotlib4j.enums.AspectType;
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
@@ -41,7 +43,7 @@ public class SubplotBuilderImpl implements SubplotBuilder {
 
     // **kwargs section
     @Override
-    public SubplotBuilder adjustable(AdjutableType arg) {
+    public SubplotBuilder adjustable(AdjustableType arg) {
         return kwargsBuilder.adjustable(arg);
     }
 
@@ -131,8 +133,13 @@ public class SubplotBuilderImpl implements SubplotBuilder {
     }
 
     @Override
-    public SubplotBuilder xTicks(String arg) {
-        return kwargsBuilder.xTicks(arg);
+    public SubplotBuilder xTicks(List<Number> ticks) {
+        return kwargsBuilder.xTicks(ticks);
+    }
+
+    @Override
+    public SubplotBuilder xTicks(List<Number> ticks, List<String> labels) {
+        return kwargsBuilder.xTicks(ticks, labels);
     }
 
     @Override
@@ -156,8 +163,13 @@ public class SubplotBuilderImpl implements SubplotBuilder {
     }
 
     @Override
-    public SubplotBuilder yTicks(String arg) {
-        return kwargsBuilder.yTicks(arg);
+    public SubplotBuilder yTicks(List<Number> ticks) {
+        return kwargsBuilder.yTicks(ticks);
+    }
+
+    @Override
+    public SubplotBuilder yTicks(List<Number> ticks, List<String> labels) {
+        return kwargsBuilder.yTicks(ticks, labels);
     }
 
     // Implement the builder interface methods

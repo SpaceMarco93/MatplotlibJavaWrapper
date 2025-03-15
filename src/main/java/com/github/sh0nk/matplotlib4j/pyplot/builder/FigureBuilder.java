@@ -12,30 +12,81 @@ import com.github.sh0nk.matplotlib4j.pyplot.kwargs.FigureArgsBuilder;
  */
 public interface FigureBuilder extends Builder2D, FigureArgsBuilder<FigureBuilder> {
 
-    // Set the title of the figure. It wraps the argument "num".
+    /**
+     * Set the figure title.
+     * <p> This method is used to et the title of the figure. It wraps the 
+     * argument "num". </p>
+     * 
+     * @param arg   the title of the window
+     * @return  the instance of {@link FigureBuilder} for method chain 
+     */
     FigureBuilder figureTitle(String arg);
 
-    // Set the width, height in inches.
+    /**
+     * Set the figure size.
+     * <p>This method is used to set the width and height in inches. </p>
+     * 
+     * @param width     the figure width in inches
+     * @param height    the figure height in inches
+     * @return  the instance of {@link FigureBuilder} for method chain 
+     */
     FigureBuilder figSize(double width, double height);
 
-    // Set the resolution of the figure in dots-per-inch.
+    /**
+     * Set the figure resolution.
+     * <p>This method is used to set the resolution of the figure in dots-per-inch.</p>
+     * 
+     * @param arg       the figure resolution in dots-per-inch
+     * @return  the instance of {@link FigureBuilder} for method chain 
+     */
     FigureBuilder dpi(double arg);
 
-    // Set the background color.
+    /**
+     * Set the figure background color.
+     * <p>This method is used to set the background color of the window.</p>
+     * 
+     * @param arg   an instance of the {@link ColorType} enum providing the color name
+     * @return  the instance of {@link FigureBuilder} for method chain   
+     */
     FigureBuilder faceColor(ColorType arg);
 
-    // Set the border color.
+    /**
+     * Set the figure border color.
+     * <p>This method is used to set the border color of the window.</p>
+     * 
+     * @param arg   an instance of the {@link ColorType} enum providing the color name
+     * @return  the instance of {@link FigureBuilder} for method chain   
+     */
     FigureBuilder edgeColor(ColorType arg);
 
-    // If False, suppress drawing the figure frame.
+    /**
+     * Set if the figure frame is visible or not.
+     * <p>This method is used to set the visibility of the frame window. If False, 
+     * suppress drawing the figure frame.</p>
+     * 
+     * @param arg   boolean variable to select if the figure frame is visible or not
+     * @return  the instance of {@link FigureBuilder} for method chain   
+     */
     FigureBuilder frameOn(boolean arg);
 
-    // If True and the figure already exists, then it is cleared.
+    /**
+     * Clear the existing window.
+     * <p>This method is used to set the figure drawing. If False, suppress 
+     * drawing the figure frame.</p>
+     * 
+     * @param arg   boolean variable to select if suppress drawing the figure frame
+     * @return  the instance of {@link FigureBuilder} for method chain 
+     */
     FigureBuilder clear(boolean arg);
 
     /**
-     * The layout mechanism for positioning of plot elements to avoid overlapping 
-     * Axes decorations (labels, ticks, etc).
+     * Set the layout mechanism.
+     * <p>This method is used to set the layout mechanism for positioning of plot 
+     * elements to avoid overlapping Axes decorations (labels, ticks, etc). 
+     * Note that layout managers can measurably slow down figure display.</p>
+     * 
+     * @param arg   an instance of the {@link LayoutType} enum providing the layout name
+     * @return  the instance of {@link FigureBuilder} for method chain   
      */
     FigureBuilder layout(LayoutType arg);
 
