@@ -12,13 +12,35 @@ import com.github.sh0nk.matplotlib4j.enums.GridWhichType;
  */
 public interface GridBuilder extends Builder3D, Line3DBuilder<GridBuilder> {
 
-    // Whether to show the grid lines.
+    /**
+     * Set the visibility of the grid lines.
+     * <p>This method is used whether to show the grid lines. If any kwargs are 
+     * supplied, it is assumed you want the grid on and visible will be set to True.
+     * If visible is None and there are no kwargs, this toggles the visibility of 
+     * the lines.</p>
+     * 
+     * @param flag      boolean value to set the visibility of the grid lines.
+     * @return  the instance of {@link GridBuilder} for method chain   
+     */
     GridBuilder visible(boolean flag);
 
-    // The grid lines to apply the changes on.
+    /**
+     * Set the grid lines to apply the changes on.
+     * <p>This method is used to set the grid lines to apply the changes on.</p>
+     * 
+     * @param arg   an instance of the {@link GridWhichType} enum 
+     * @return  the instance of {@link GridBuilder} for method chain 
+     */
     GridBuilder which(GridWhichType arg);
 
-    // The axis to apply the changes on.
+    /**
+     * Set the axis to apply the changes on.
+     * <p>This method is used to check if the grid lines are to be applied only
+     * for a particular axis.</p>
+     * 
+     * @param arg   an instance of the {@link GridAxisType} enum 
+     * @return  the instance of {@link GridBuilder} for method chain 
+     */
     GridBuilder axis(GridAxisType arg);
 
 }

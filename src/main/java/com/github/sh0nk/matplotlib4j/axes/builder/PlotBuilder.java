@@ -12,26 +12,53 @@ import com.github.sh0nk.matplotlib4j.axes.kwargs.Line3DBuilder;
  */
 public interface PlotBuilder extends Builder3D, Line3DBuilder<PlotBuilder> {
 
-    // Set the vertical coordinates of the data points.
+    /**
+     * Add the y-coordinates to the line plot.
+     * 
+     * @param nums  the vertical coordinates to be added to the line plot
+     * @return  the instance of {@link PlotBuilder} for method chain
+     */
     PlotBuilder add(List<? extends Number> nums);
 
-    // Set the The horizontal / vertical coordinates of the data points.
+    /**
+     * Add both x-coordinates and y-coordinates to the line plot.
+     * 
+     * @param x     the set of x-coordinates to be added to the line plot
+     * @param y     the set of y-coordinates to be added to the line plot
+     * @return  the instance of {@link PlotBuilder} for method chain
+     */
     PlotBuilder add(List<? extends Number> x, List<? extends Number> y);
 
     /**
-     * Set the The horizontal / vertical coordinates of the data points, and the
-     * optional parameter fmt that is a convenient way for defining basic formatting 
-     * like color, marker and linestyle.
+     * Add both x-coordinates and y-coordinates of the data points together with
+     * the string to provide a fast way to set the color and linestyle.
+     * 
+     * @param x     the set of x-coordinates to be added to the line plot
+     * @param y     the set of y-coordinates to be added to the line plot
+     * @param fmt   the string to select the color and linestyle
+     * @return  the instance of {@link PlotBuilder} for method chain
      */
     PlotBuilder add(List<? extends Number> x, List<? extends Number> y, String fmt);
 
-    // Set the The horizontal / vertical and z coordinates of the data points.
+    /**
+     * Add both x-coordinates, y-coordinates and z-coordinates to the line plot.
+     * 
+     * @param x     the set of x-coordinates to be added to the line plot
+     * @param y     the set of y-coordinates to be added to the line plot
+     * @param z     the set of z-coordinates to be added to the line plot
+     * @return  the instance of {@link PlotBuilder} for method chain
+     */
     PlotBuilder add(List<? extends Number> x, List<? extends Number> y, List<? extends Number> z);
 
     /**
-     * Set the The horizontal / vertical and z coordinates of the data points, and the
-     * optional parameter fmt that is a convenient way for defining basic formatting 
-     * like color, marker and linestyle.
+     * Add both x-coordinates, y-coordinates and z-coordinates of the data points 
+     * together with the string to provide a fast way to set the color and linestyle.
+     * 
+     * @param x     the set of x-coordinates to be added to the line plot
+     * @param y     the set of y-coordinates to be added to the line plot
+     * @param z     the set of y-coordinates to be added to the line plot
+     * @param fmt   the string to select the color and linestyle
+     * @return  the instance of {@link PlotBuilder} for method chain
      */
     PlotBuilder add(List<? extends Number> x, List<? extends Number> y, List<? extends Number> z, String fmt);
 

@@ -22,6 +22,7 @@ public class FigureBuilderImpl implements FigureBuilder {
     // Variable defining the builder for all the **kwargs
     private final FigureArgsBuilder<FigureBuilder> kwargsBuilder = new FigureArgsBuilderImpl<>(innerBuilder);
 
+    // Public constructor
     public FigureBuilderImpl() {}
 
     // *args section

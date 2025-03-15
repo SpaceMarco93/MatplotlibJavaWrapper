@@ -25,6 +25,9 @@ public class PlotBuilderImpl implements PlotBuilder {
     // Variable defining the builder for all the **kwargs
     private final Line2DBuilder<PlotBuilder> kwargsBuilder = new Line2DBuilderImpl<>(innerBuilder);
 
+    // Public constructor
+    public PlotBuilderImpl() {}
+
     // *args section
     @Override
     public PlotBuilder add(List<? extends Number> x) {

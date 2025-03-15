@@ -39,18 +39,8 @@ public class TicksBuilderImpl implements TicksBuilder {
 
     // Public constructor
     public TicksBuilderImpl(String methodName) {
-        // Add labels without ticks causes an error, that's why made ticks as mandatory parameter
-        // matplotlib.units.ConversionError: Failed to convert value(s) to axis units: ['a', 'b']
         this.methodName = methodName;
     }
-
-    // public static TicksBuilderImpl xTicksBuilder(List<? extends Number> ticks) {
-    //     return new TicksBuilderImpl(ticks, "xticks");
-    // }
-
-    // public static TicksBuilderImpl yTicksBuilder(List<? extends Number> ticks) {
-    //     return new TicksBuilderImpl(ticks, "yticks");
-    // }
 
     // *args section
     @Override

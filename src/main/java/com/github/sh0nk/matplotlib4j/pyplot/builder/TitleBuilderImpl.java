@@ -29,6 +29,9 @@ public class TitleBuilderImpl implements TitleBuilder {
 
     // Variable defining the builder for all the **kwargs
     private final TextArgsBuilder<TitleBuilder> kwargsBuilder = new TextArgsBuilderImpl<>(innerBuilder);
+
+    // Default constructor
+    public TitleBuilderImpl() {}
     
     // *args section
     @Override

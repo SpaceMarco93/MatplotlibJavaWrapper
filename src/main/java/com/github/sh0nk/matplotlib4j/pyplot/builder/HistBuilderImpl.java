@@ -21,11 +21,12 @@ import java.util.List;
 public class HistBuilderImpl implements HistBuilder {
 
     // Variable defining the builder for the main method
-    private CompositeBuilder<HistBuilder> innerBuilder = new CompositeBuilder<>(this);
+    private final CompositeBuilder<HistBuilder> innerBuilder = new CompositeBuilder<>(this);
 
     // Variable defining the builder for all the **kwargs
-    private PatchBuilder<HistBuilder> kwargsBuilder = new PatchBuilderImpl<>(innerBuilder);
+    private final PatchBuilder<HistBuilder> kwargsBuilder = new PatchBuilderImpl<>(innerBuilder);
 
+    // Public constructor
     public HistBuilderImpl() {}
 
     // *args section
@@ -129,16 +130,6 @@ public class HistBuilderImpl implements HistBuilder {
         return innerBuilder.addToKwargsWithoutQuoting("label", "[\"" + Joiner.on("\", \"").join(args) + "\"]");
     }
 
-    // @Override
-    // public HistBuilder label(String... args) {
-    //     return innerBuilder.addToKwargsWithoutQuoting("label", "[\"" + Joiner.on("\", \"").join(args) + "\"]");
-    // }
-    
-    // @Override
-    // public HistBuilder label(String... args) {
-    //     return innerBuilder.addToKwargsWithoutQuoting("label", "[\"" + Joiner.on("\", \"").join(args) + "\"]");
-    // }
-
     @Override
     public HistBuilder stacked(boolean arg) {
         return innerBuilder.addToKwargs("stacked", arg);
@@ -178,8 +169,6 @@ public class HistBuilderImpl implements HistBuilder {
     // Implement the builder interface methods
     @Override
     public String build() {
-        // Preconditions.checkArgument(xList.size() > 0, ".add() is needed to be called at least once.");
-        // innerBuilder.addToArgsWithoutQuoting(xList.toString());
         return innerBuilder.build();
     }
 

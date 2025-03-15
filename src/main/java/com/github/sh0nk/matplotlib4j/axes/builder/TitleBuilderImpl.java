@@ -29,6 +29,9 @@ public class TitleBuilderImpl implements TitleBuilder {
 
     // Variable defining the builder for all the **kwargs
     private final TextArgsBuilder<TitleBuilder> kwargsBuilder = new TextArgsBuilderImpl<>(innerBuilder);
+
+    // Default constructor
+    public TitleBuilderImpl() {}
     
     // *args section
     @Override
@@ -118,8 +121,8 @@ public class TitleBuilderImpl implements TitleBuilder {
     }
 
     @Override
-    public TitleBuilder position(double x, double y) {
-        return kwargsBuilder.position(x, y);
+    public TitleBuilder position(double x, double y, double z) {
+        return kwargsBuilder.position(x, y, z);
     }
 
     @Override
@@ -150,6 +153,11 @@ public class TitleBuilderImpl implements TitleBuilder {
     @Override
     public TitleBuilder x(double arg) {
         return kwargsBuilder.x(arg);
+    }
+
+    @Override
+    public TitleBuilder z(double arg) {
+        return kwargsBuilder.z(arg);
     }
 
     // Implement the builder interface methods

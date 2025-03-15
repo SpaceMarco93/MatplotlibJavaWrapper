@@ -17,6 +17,7 @@ public class SaveFigBuilderImpl implements SaveFigBuilder {
     // Variable defining the builder for the main method
     private final CompositeBuilder<SaveFigBuilder> innerBuilder = new CompositeBuilder<>(this);
 
+    // Public constructor
     public SaveFigBuilderImpl() {}
 
     // *args section

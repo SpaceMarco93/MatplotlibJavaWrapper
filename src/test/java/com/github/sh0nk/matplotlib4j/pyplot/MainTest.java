@@ -33,10 +33,10 @@ public class MainTest {
            .add(Arrays.asList(1.3, 2))
            .label("label")
            .lineStyle("--");
-        plt.xLabel("xlabel");
-        plt.yLabel("ylabel");
-        plt.text(0.5, 0.2, "text");
-        plt.title("Title!");
+        plt.setXLabel("xlabel");
+        plt.setYLabel("ylabel");
+        plt.setText(0.5, 0.2, "text");
+        plt.setTitle("Title!");
         plt.setLegend();
         plt.show();
     }
@@ -50,12 +50,12 @@ public class MainTest {
            .label("label")
            .lineStyle("--")
            .lineWidth(2.0);
-        plt.xScale(ScaleType.LOG);
-        plt.yScale(ScaleType.LOG);
-        plt.xLabel("xlabel");
-        plt.yLabel("ylabel");
-        plt.text(0.5, 0.2, "text");
-        plt.title("Title!");
+        plt.setXScale(ScaleType.LOG);
+        plt.setYScale(ScaleType.LOG);
+        plt.setXLabel("xlabel");
+        plt.setYLabel("ylabel");
+        plt.setText(0.5, 0.2, "text");
+        plt.setTitle("Title!");
         plt.setLegend();
         plt.show();
     }
@@ -73,10 +73,10 @@ public class MainTest {
                 .add(x, y)
                 .label("sin")
                 .lineStyle("--");
-        plt.xLim(1.0, 5.0);
+        plt.setXLim(1.0, 5.0);
         plt.setTicks().xTicks(Arrays.asList(Math.PI / 2, Math.PI, Math.PI * 3 / 2))
                 .labels(Arrays.asList("$\\pi/2$", "$\\pi$", "$3\\pi/2$"));
-        plt.title("sin curve");
+        plt.setTitle("sin curve");
         plt.setLegend().loc(LocationType.UPPER_RIGHT);
         plt.show();
     }
@@ -89,7 +89,7 @@ public class MainTest {
 
         Plot plt = new PlotImpl(DRY_RUN);
         plt.plot().add(x, y, "o").label("sin");
-        plt.title("scatter");
+        plt.setTitle("scatter");
         plt.setLegend().loc(LocationType.UPPER_RIGHT);
         plt.show();
     }
@@ -106,7 +106,7 @@ public class MainTest {
 
         Plot plt = new PlotImpl(DRY_RUN);
         plt.contour().add(x, y, zCalced);
-        plt.title("contour");
+        plt.setTitle("contour");
         plt.setLegend().loc(LocationType.UPPER_RIGHT);
         plt.show();
     }
@@ -122,7 +122,7 @@ public class MainTest {
         grid.calcZ((xi, yj) -> Math.sqrt(xi * xi + yj * yj));
 
         Plot plt = new PlotImpl(DRY_RUN);
-        plt.title("pcolor");
+        plt.setTitle("pcolor");
         plt.setLegend().loc(LocationType.UPPER_RIGHT);
         plt.show();
     }
@@ -136,8 +136,8 @@ public class MainTest {
 
         Plot plt = new PlotImpl(DRY_RUN);
         plt.hist().addSingleSet(x).orientation(HistOrientationType.HORIZONAL);
-        plt.yLim(-5, 5);
-        plt.title("histogram");
+        plt.setYLim(-5, 5);
+        plt.setTitle("histogram");
         plt.setLegend().loc(LocationType.UPPER_RIGHT);
         plt.show();
     }
@@ -153,8 +153,8 @@ public class MainTest {
 
         Plot plt = new PlotImpl(DRY_RUN);
         plt.hist().addSingleSet(x1).addSingleSet(x2).bins(20).stacked(true).color(ColorType.BLACK, ColorType.EGG_SHELL).range(3, 5);
-        plt.xLim(-6, 10);
-        plt.title("histogram");
+        plt.setXLim(-6, 10);
+        plt.setTitle("histogram");
         plt.setLegend().loc(LocationType.UPPER_RIGHT);
         plt.show();
     }
@@ -165,8 +165,8 @@ public class MainTest {
 
         Plot plt = new PlotImpl(DRY_RUN);
         plt.hist();
-        plt.xLim(-5, 5);
-        plt.title("histogram");
+        plt.setXLim(-5, 5);
+        plt.setTitle("histogram");
         plt.setLegend().loc(LocationType.UPPER_RIGHT);
         plt.show();
     }
@@ -187,7 +187,7 @@ public class MainTest {
 
         Plot plt = new PlotImpl(DRY_RUN);
         plt.plot().add(Arrays.asList(1.3, 2));
-        plt.title("Title!");
+        plt.setTitle("Title!");
         plt.setLegend();
         plt.show();
 

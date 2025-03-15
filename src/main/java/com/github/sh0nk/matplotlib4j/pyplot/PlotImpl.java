@@ -75,6 +75,11 @@ public class PlotImpl implements Plot {
         this.dryRun = dryRun;
     }
 
+    // Public method to add only the registered builders coming from another instance
+    public void addRegisteredBuilders(PlotImpl plotImpl){
+        this.registeredBuilders.addAll(plotImpl.registeredBuilders);
+    }
+
     // Implementation of the higher level methods
     @Override
     public FigureBuilder figure(String windowTitle) {
@@ -99,7 +104,7 @@ public class PlotImpl implements Plot {
     }
 
     @Override
-    public TitleBuilder title(String title) {
+    public TitleBuilder setTitle(String title) {
         TitleBuilder builder = new TitleBuilderImpl();
         builder.add(title);
         registeredBuilders.add(builder);
@@ -114,7 +119,7 @@ public class PlotImpl implements Plot {
     }
 
     @Override
-    public LabelBuilder xLabel(String label) {
+    public LabelBuilder setXLabel(String label) {
         LabelBuilder builder = new LabelBuilderImpl("xlabel");
         builder.xLabel(label);
         registeredBuilders.add(builder);
@@ -122,7 +127,7 @@ public class PlotImpl implements Plot {
     }
 
     @Override
-    public LabelBuilder yLabel(String label) {
+    public LabelBuilder setYLabel(String label) {
         LabelBuilder builder = new LabelBuilderImpl("ylabel");
         builder.yLabel(label);
         registeredBuilders.add(builder);
@@ -137,7 +142,7 @@ public class PlotImpl implements Plot {
     }
 
     @Override
-    public GridBuilder grid(boolean arg) {
+    public GridBuilder setGrid(boolean arg) {
         GridBuilder builder = new GridBuilderImpl();
         builder.visible(arg);
         registeredBuilders.add(builder);
@@ -152,7 +157,7 @@ public class PlotImpl implements Plot {
     }
 
     @Override
-    public ScaleBuilder xScale(ScaleType scale) {
+    public ScaleBuilder setXScale(ScaleType scale) {
         ScaleBuilder builder = new ScaleBuilderImpl("xscale");
         builder.xScale(scale);
         registeredBuilders.add(builder);
@@ -160,7 +165,7 @@ public class PlotImpl implements Plot {
     }
 
     @Override
-    public ScaleBuilder yScale(ScaleType scale) {
+    public ScaleBuilder setYScale(ScaleType scale) {
         ScaleBuilder builder = new ScaleBuilderImpl("yscale");
         builder.yScale(scale);
         registeredBuilders.add(builder);
@@ -168,7 +173,7 @@ public class PlotImpl implements Plot {
     }
 
     @Override
-    public LimitBuilder xLim(Number xmin, Number xmax) {
+    public LimitBuilder setXLim(Number xmin, Number xmax) {
         LimitBuilder builder = new LimitBuilderImpl("xlim");
         builder.xLim(xmin, xmax);
         registeredBuilders.add(builder);
@@ -176,7 +181,7 @@ public class PlotImpl implements Plot {
     }
 
     @Override
-    public LimitBuilder yLim(Number ymin, Number ymax) {
+    public LimitBuilder setYLim(Number ymin, Number ymax) {
         LimitBuilder builder = new LimitBuilderImpl("ylim");
         builder.yLim(ymin, ymax);
         registeredBuilders.add(builder);
@@ -225,7 +230,7 @@ public class PlotImpl implements Plot {
     }
 
     @Override
-    public TextBuilder text(double x, double y, String s) {
+    public TextBuilder setText(double x, double y, String s) {
         TextBuilder builder = new TextBuilderImpl();
         builder.add(x, y, s);
         registeredBuilders.add(builder);

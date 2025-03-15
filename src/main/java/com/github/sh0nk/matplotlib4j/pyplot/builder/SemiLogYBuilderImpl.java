@@ -24,8 +24,9 @@ public class SemiLogYBuilderImpl implements SemiLogYBuilder {
     private final CompositeBuilder<SemiLogYBuilder> innerBuilder = new CompositeBuilder<>(this);
 
     // Variable defining the builder for all the **kwargs
-    private Line2DBuilder<SemiLogYBuilder> kwargsBuilder = new Line2DBuilderImpl<>(innerBuilder);
+    private final Line2DBuilder<SemiLogYBuilder> kwargsBuilder = new Line2DBuilderImpl<>(innerBuilder);
 
+    // Public constructor
     public SemiLogYBuilderImpl() {}
 
     // *args section

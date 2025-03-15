@@ -25,6 +25,7 @@ public class GridBuilderImpl implements GridBuilder {
     // Variable defining the builder for all the **kwargs
     private final Line3DBuilder<GridBuilder> kwargsBuilder = new Line3DBuilderImpl<>(innerBuilder);
 
+    // Default constructor
     public GridBuilderImpl() {}
 
     // *args section

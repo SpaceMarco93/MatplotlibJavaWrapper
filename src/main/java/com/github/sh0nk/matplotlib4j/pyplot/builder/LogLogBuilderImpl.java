@@ -26,6 +26,7 @@ public class LogLogBuilderImpl implements LogLogBuilder {
     // Variable defining the builder for all the **kwargs
     private final Line2DBuilder<LogLogBuilder> kwargsBuilder = new Line2DBuilderImpl<>(innerBuilder);
 
+    // Public constructor
     public LogLogBuilderImpl() {}
 
     // *args section

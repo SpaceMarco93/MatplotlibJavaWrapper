@@ -2,10 +2,10 @@ package com.github.sh0nk.matplotlib4j.axes.builder;
 
 /**
  * This is a generic interface that is extended by all the other interfaces
- * which represent the higher level methods that are used together with the plot
+ * which represent the higher level methods that are used together with the axes
  * object.
  * 
- * plt."method"(*args, **kwargs)
+ * axes."method"(*args, **kwargs)
  */
 public interface Builder3D {
 

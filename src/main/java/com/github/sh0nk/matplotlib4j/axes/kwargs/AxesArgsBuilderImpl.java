@@ -1,5 +1,7 @@
 package com.github.sh0nk.matplotlib4j.axes.kwargs;
 
+import java.util.List;
+
 import com.github.sh0nk.matplotlib4j.axes.builder.Builder3D;
 import com.github.sh0nk.matplotlib4j.axes.builder.CompositeAxesBuilder;
 import com.github.sh0nk.matplotlib4j.enums.AdjustableType;
@@ -115,8 +117,14 @@ public class AxesArgsBuilderImpl<T extends Builder3D> implements AxesArgsBuilder
     }
 
     @Override
-    public T xTicks(String arg) {
-        return innerBuilder.addToKwargs("xticks", arg);
+    public T xTicks(List<Number> ticks) {
+        return innerBuilder.addToArgs(ticks);
+    }
+
+    @Override
+    public T xTicks(List<Number> ticks, List<String> labels) {
+        innerBuilder.addToArgs(ticks);
+        return innerBuilder.addToArgs(labels);
     }
 
     @Override
@@ -127,7 +135,7 @@ public class AxesArgsBuilderImpl<T extends Builder3D> implements AxesArgsBuilder
 
     @Override
     public T yLabel(String arg) {
-        return innerBuilder.addToKwargs("xlabel", arg);
+        return innerBuilder.addToKwargs("ylabel", arg);
     }
 
     @Override
@@ -138,14 +146,50 @@ public class AxesArgsBuilderImpl<T extends Builder3D> implements AxesArgsBuilder
 
     @Override
     public T yScale(ScaleType arg) {
-        return innerBuilder.addToKwargs("ysclae", arg.getScale());
+        return innerBuilder.addToKwargs("yscale", arg.getScale());
     }
 
     @Override
-    public T yTicks(String arg) {
-        return innerBuilder.addToKwargs("yticks", arg);
+    public T yTicks(List<Number> ticks) {
+        return innerBuilder.addToArgs(ticks);
     }
 
-    
+    @Override
+    public T yTicks(List<Number> ticks, List<String> labels) {
+        innerBuilder.addToArgs(ticks);
+        return innerBuilder.addToArgs(labels);
+    }
 
+    @Override
+    public T zBound(double left, double right) {
+        String string = "(left = " + left + ",right= " + right + ")";
+        return innerBuilder.addToKwargs("zbound", string);
+    }
+
+    @Override
+    public T zLabel(String arg) {
+        return innerBuilder.addToKwargs("zlabel", arg);
+    }
+
+    @Override
+    public T zLim(double left, double right) {
+        String string = "(left = " + left + ",right= " + right + ")";
+        return innerBuilder.addToKwargs("zlim", string);
+    }
+
+    @Override
+    public T zScale(ScaleType arg) {
+        return innerBuilder.addToKwargs("zscale", arg.getScale());
+    }
+
+    @Override
+    public T zTicks(List<Number> ticks) {
+        return innerBuilder.addToArgs(ticks);
+    }
+
+    @Override
+    public T zTicks(List<Number> ticks, List<String> labels) {
+        innerBuilder.addToArgs(ticks);
+        return innerBuilder.addToArgs(labels);
+    }
 }

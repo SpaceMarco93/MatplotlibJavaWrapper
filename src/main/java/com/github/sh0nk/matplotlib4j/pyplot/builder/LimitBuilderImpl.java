@@ -10,10 +10,10 @@ package com.github.sh0nk.matplotlib4j.pyplot.builder;
 public class LimitBuilderImpl implements LimitBuilder {
 
     // Variable defining the builder for the main method
-    private CompositeBuilder<LimitBuilder> innerBuilder = new CompositeBuilder<>(this);
+    private final CompositeBuilder<LimitBuilder> innerBuilder = new CompositeBuilder<>(this);
 
     // Variable to distinguish between the use of the "xlim" or "ylim" methods
-    private String methodName;
+    private final String methodName;
 
     // Public constructor
     public LimitBuilderImpl(String methodName) {

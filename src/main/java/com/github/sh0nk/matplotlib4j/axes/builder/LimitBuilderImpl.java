@@ -10,10 +10,10 @@ package com.github.sh0nk.matplotlib4j.axes.builder;
 public class LimitBuilderImpl implements LimitBuilder {
 
     // Variable defining the builder for the main method
-    private CompositeAxesBuilder<LimitBuilder> innerBuilder = new CompositeAxesBuilder<>(this);
+    private final CompositeAxesBuilder<LimitBuilder> innerBuilder = new CompositeAxesBuilder<>(this);
 
     // Variable to distinguish between the use of the "xlim" or "ylim" methods
-    private String methodName;
+    private final String methodName;
 
     // Public constructor
     public LimitBuilderImpl(String methodName) {

@@ -96,10 +96,11 @@ public class TextArgsBuilderImpl<T extends Builder3D> implements TextArgsBuilder
     }
 
     @Override
-    public T position(double x, double y) {
+    public T position(double x, double y, double z) {
         ArrayList<Double> list = new ArrayList<Double>();
         list.add(x);
         list.add(y);
+        list.add(z);
         return innerBuilder.addToKwargs("position", list);
     }
 
@@ -136,6 +137,11 @@ public class TextArgsBuilderImpl<T extends Builder3D> implements TextArgsBuilder
     @Override
     public T y(double arg) {
         return innerBuilder.addToKwargs("y", arg);
+    }
+
+    @Override
+    public T z(double arg) {
+        return innerBuilder.addToKwargs("z", arg);
     }
 
 }

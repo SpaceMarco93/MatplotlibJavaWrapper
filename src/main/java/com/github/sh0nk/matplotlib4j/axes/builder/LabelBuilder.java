@@ -14,16 +14,36 @@ import com.github.sh0nk.matplotlib4j.enums.HorizontalAlignmentType;
  */
 public interface LabelBuilder extends Builder3D, TextArgsBuilder<LabelBuilder> {
 
-    // Set the x-axis label text.
+    /**
+     * Set the label text for the x-axis.
+     * 
+     * @param arg   the text to be displayed for the x-axis
+     * @return  the instance of {@link LabelBuilder} for method chain
+     */
     LabelBuilder xLabel(String arg);
 
-    // Set the y-axis label text.
+    /**
+     * Set the label text for the y-axis.
+     * 
+     * @param arg   the text to be displayed for the y-axis
+     * @return  the instance of {@link LabelBuilder} for method chain
+     */
     LabelBuilder yLabel(String arg);
 
-    // Set the z-axis label text.
+    /**
+     * Set the label text for the z-axis.
+     * 
+     * @param arg   the text to be displayed for the z-axis
+     * @return  the instance of {@link LabelBuilder} for method chain
+     */
     LabelBuilder zLabel(String arg);
 
-    // Set the label position.
+    /**
+     * Set the label text position.
+     * 
+     * @param arg   an instance of the {@link HorizontalAlignmentType} enum
+     * @return  the instance of {@link LabelBuilder} for method chain
+     */
     LabelBuilder loc(HorizontalAlignmentType arg);
 
 }

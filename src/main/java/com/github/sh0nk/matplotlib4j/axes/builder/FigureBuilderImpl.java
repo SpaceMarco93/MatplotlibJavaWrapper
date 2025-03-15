@@ -2,6 +2,7 @@ package com.github.sh0nk.matplotlib4j.axes.builder;
 
 import java.util.ArrayList;
 
+import com.github.sh0nk.matplotlib4j.axes.kwargs.FigureArgsBuilder;
 import com.github.sh0nk.matplotlib4j.axes.kwargs.FigureArgsBuilderImpl;
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.LayoutType;
@@ -19,7 +20,7 @@ public class FigureBuilderImpl implements FigureBuilder {
     private final CompositeAxesBuilder<FigureBuilder> innerBuilder = new CompositeAxesBuilder<>(this);
 
     // Variable defining the builder for all the **kwargs
-    private final FigureArgsBuilderImpl<FigureBuilder> kwargsBuilder = new FigureArgsBuilderImpl<>(innerBuilder);
+    private final FigureArgsBuilder<FigureBuilder> kwargsBuilder = new FigureArgsBuilderImpl<>(innerBuilder);
 
     // Default constructor
     public FigureBuilderImpl() {}

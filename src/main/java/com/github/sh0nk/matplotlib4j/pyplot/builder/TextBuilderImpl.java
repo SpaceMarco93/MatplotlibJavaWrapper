@@ -29,6 +29,7 @@ public class TextBuilderImpl implements TextBuilder {
     // Variable defining the builder for all the **kwargs
     private final TextArgsBuilder<TextBuilder> kwargsBuilder = new TextArgsBuilderImpl<>(innerBuilder);
 
+    // Public constructor
     public TextBuilderImpl() {}
 
     // *args section

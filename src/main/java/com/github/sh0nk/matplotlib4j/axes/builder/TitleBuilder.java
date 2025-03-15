@@ -11,19 +11,45 @@ import com.github.sh0nk.matplotlib4j.enums.LocationType;
  */
 public interface TitleBuilder extends Builder3D, TextArgsBuilder<TitleBuilder> {
 
-    // Text to use for the title
+    /**
+     * Add the title to the arguments of the {@link TitleBuilder} instance.
+     * 
+     * @param arg   the plot title 
+     * @return  the instance of {@link TitleBuilder} for method chain
+     */
     TitleBuilder add(String arg);
 
-    // Text to use for the label
+    /**
+     * Set the plot title.
+     * 
+     * @param arg   the plot title 
+     * @return  the instance of {@link TitleBuilder} for method chain
+     */
     TitleBuilder label(String arg);
 
-    // Which title to set.
+    /**
+     * Set the title location.
+     * 
+     * @param arg   an instance of the {@link LocationType} enum providing the 
+     *              location
+     * @return  the instance of {@link TitleBuilder} for method chain
+     */
     TitleBuilder loc(LocationType arg);
 
-    // Set the vertical Axes location for the title (1.0 is the top).
+    /**
+     * Set the vertical Axes location for the title (1.0 is the top).
+     * 
+     * @param arg   the vertical position of the title (number between 0 and 1)
+     * @return  the instance of {@link TitleBuilder} for method chain
+     */
     TitleBuilder y(double arg);
 
-    // The offset of the title from the top of the Axes, in points.
+    /**
+     * Set the offset of the title from the top of the Axes, in points.
+     * 
+     * @param arg   the title offset from the top of the Axes in points.
+     * @return  the instance of {@link TitleBuilder} for method chain
+     */
     TitleBuilder pad(double arg);
 
 }

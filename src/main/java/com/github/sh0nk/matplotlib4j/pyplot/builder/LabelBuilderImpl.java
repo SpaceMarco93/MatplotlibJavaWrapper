@@ -24,10 +24,10 @@ import com.github.sh0nk.matplotlib4j.pyplot.kwargs.TextArgsBuilderImpl;
 public class LabelBuilderImpl implements LabelBuilder {
 
     // Variable defining the builder for the main method
-    private CompositeBuilder<LabelBuilder> innerBuilder = new CompositeBuilder<>(this);
+    private final CompositeBuilder<LabelBuilder> innerBuilder = new CompositeBuilder<>(this);
 
     // Variable defining the builder for all the **kwargs
-    private TextArgsBuilder<LabelBuilder> kwargsBuilder = new TextArgsBuilderImpl<>(innerBuilder);
+    private final TextArgsBuilder<LabelBuilder> kwargsBuilder = new TextArgsBuilderImpl<>(innerBuilder);
 
     // Variable to distinguish between the use of the "xlabel" or "ylabel" methods
     private String methodName;

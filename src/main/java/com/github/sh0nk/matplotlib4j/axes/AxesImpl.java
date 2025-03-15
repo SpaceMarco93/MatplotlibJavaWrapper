@@ -63,6 +63,11 @@ public class AxesImpl implements Axes {
         this(PythonConfig.systemDefaultPythonConfig(), dryRun);
     }
 
+    // Public method to add only the registered builders coming from another instance
+    public void addRegisteredBuilders(AxesImpl axesImpl){
+        this.registeredBuilders.addAll(axesImpl.registeredBuilders);
+    }
+
     @Override
     public FigureBuilder figure3D(String windowTitle) {
         FigureBuilder builder = new FigureBuilderImpl("ax = ", ".add_subplot(projection='3d')");
@@ -72,14 +77,14 @@ public class AxesImpl implements Axes {
     }
 
     @Override
-    public LegendBuilder legend() {
+    public LegendBuilder setLegend() {
         LegendBuilder builder = new LegendBuilderImpl();
         registeredBuilders.add(builder);
         return builder;
     }
 
     @Override
-    public GridBuilder grid(boolean arg) {
+    public GridBuilder setGrid(boolean arg) {
         GridBuilder builder = new GridBuilderImpl();
         builder.visible(arg);
         registeredBuilders.add(builder);
@@ -218,7 +223,7 @@ public class AxesImpl implements Axes {
     }
 
     @Override
-    public TextBuilder text(double x, double y, double z, String s) {
+    public TextBuilder setText(double x, double y, double z, String s) {
         TextBuilder builder = new TextBuilderImpl();
         builder.add(x, y, z, s);
         registeredBuilders.add(builder);

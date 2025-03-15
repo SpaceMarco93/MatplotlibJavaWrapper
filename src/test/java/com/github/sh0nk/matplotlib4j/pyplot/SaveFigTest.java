@@ -21,7 +21,7 @@ public class SaveFigTest {
 
         Plot plt = new PlotImpl(DRY_RUN);
         plt.plot().add(Arrays.asList(1.3, 2));
-        plt.title("Title!");
+        plt.setTitle("Title!");
         plt.saveFig(tmpFile.getAbsolutePath());
         plt.executeSilently();
 
@@ -38,7 +38,7 @@ public class SaveFigTest {
 
         Plot plt = new PlotImpl(DRY_RUN);
         plt.plot().add(Arrays.asList(1.3, 2));
-        plt.title("Title!");
+        plt.setTitle("Title!");
         plt.saveFig(tmpFile.getAbsolutePath());
         plt.saveFig(tmpFile2.getAbsolutePath());
         plt.executeSilently();
@@ -57,12 +57,12 @@ public class SaveFigTest {
 
         Plot plt = new PlotImpl(DRY_RUN);
         plt.plot().add(Arrays.asList(1.3, 2));
-        plt.title("Title1");
+        plt.setTitle("Title1");
         plt.saveFig(tmpFile.getAbsolutePath());
         plt.close();
 
         plt.plot().add(Arrays.asList(1.3, -2));
-        plt.title("Title2");
+        plt.setTitle("Title2");
         plt.saveFig(tmpFile2.getAbsolutePath());
         plt.executeSilently();
 
@@ -78,7 +78,7 @@ public class SaveFigTest {
 
         Plot plt = new PlotImpl(DRY_RUN);
         plt.plot().add(Arrays.asList(1.3, 2));
-        plt.title("Title!");
+        plt.setTitle("Title!");
         plt.saveFig(tmpFile.getAbsolutePath());
         plt.executeSilently();
         plt.executeSilently();
@@ -94,7 +94,7 @@ public class SaveFigTest {
 
         Plot plt = new PlotImpl(DRY_RUN);
         plt.plot().add(Arrays.asList(1.3, 2));
-        plt.title("Title!");
+        plt.setTitle("Title!");
         plt.saveFig(tmpFile.getAbsolutePath());
         plt.executeSilently();
         plt.show();
@@ -110,7 +110,7 @@ public class SaveFigTest {
 
         Plot plt = new PlotImpl(DRY_RUN);
         plt.plot().add(Arrays.asList(1.3, 2));
-        plt.title("Title!");
+        plt.setTitle("Title!");
         plt.saveFig(tmpFile.getAbsolutePath());
         plt.show();
 

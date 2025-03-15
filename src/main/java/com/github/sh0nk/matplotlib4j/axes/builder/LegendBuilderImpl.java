@@ -15,7 +15,7 @@ import com.github.sh0nk.matplotlib4j.enums.LocationType;
 public class LegendBuilderImpl implements LegendBuilder {
 
     // Variable defining the builder for the main method
-    private CompositeAxesBuilder<LegendBuilder> innerBuilder = new CompositeAxesBuilder<>(this);
+    private final CompositeAxesBuilder<LegendBuilder> innerBuilder = new CompositeAxesBuilder<>(this);
 
     // Public constructor
     public LegendBuilderImpl() {}

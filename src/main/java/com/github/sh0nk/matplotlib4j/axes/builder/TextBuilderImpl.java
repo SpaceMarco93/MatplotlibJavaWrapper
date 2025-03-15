@@ -29,6 +29,7 @@ public class TextBuilderImpl implements TextBuilder {
     // Variable defining the builder for all the **kwargs
     private final TextArgsBuilder<TextBuilder> kwargsBuilder = new TextArgsBuilderImpl<>(innerBuilder);
 
+    // Default constructor
     public TextBuilderImpl() {}
 
     // *args section
@@ -107,8 +108,8 @@ public class TextBuilderImpl implements TextBuilder {
     }
 
     @Override
-    public TextBuilder position(double x, double y) {
-        return kwargsBuilder.position(x, y);
+    public TextBuilder position(double x, double y, double z) {
+        return kwargsBuilder.position(x, y, z);
     }
 
     @Override
@@ -144,6 +145,11 @@ public class TextBuilderImpl implements TextBuilder {
     @Override
     public TextBuilder y(double arg) {
         return kwargsBuilder.y(arg);
+    }
+
+    @Override
+    public TextBuilder z(double arg) {
+        return kwargsBuilder.z(arg);
     }
 
     // Implement the builder interface methods

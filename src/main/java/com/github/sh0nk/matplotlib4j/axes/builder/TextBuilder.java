@@ -10,7 +10,15 @@ import com.github.sh0nk.matplotlib4j.axes.kwargs.TextArgsBuilder;
  */
 public interface TextBuilder extends Builder3D, TextArgsBuilder<TextBuilder> {
 
-    // The position to place the text. By default, this is in data coordinates. 
+    /**
+     * Add the text position coordinates and content.
+     * 
+     * @param x     x-coordinate of the text position
+     * @param y     y-coordinate of the text position
+     * @param z     z-coordinate of the text position
+     * @param text  the text content
+     * @return  the instance of {@link TextBuilder} for method chain
+     */
     TextBuilder add(Number x, Number y, Number z, String fmt);
 
 }

@@ -39,16 +39,16 @@ public interface Plot {
      * is used to call all the other higher order method using the default implementation
      * of the {@link PythonConfig} instance.
      */
-    static Plot create() {
+    static PlotImpl create() {
         return new PlotImpl(PythonConfig.systemDefaultPythonConfig(), false);
     }
-
+    
     /**
      * This static method is used to create an instance of the plot object that 
      * is used to call all the other higher order method using the user instance
      * of the {@link PythonConfig}.
      */
-    static Plot create(PythonConfig pythonConfig) {
+    static PlotImpl create(PythonConfig pythonConfig) {
         return new PlotImpl(pythonConfig, false);
     }
 
@@ -98,7 +98,7 @@ public interface Plot {
      * @param title     the title of the plot insider the figure
      * @return  an instance of the {@link TitleBuilder}
      */
-    TitleBuilder title(String title);
+    TitleBuilder setTitle(String title);
 
     /**
      * Set a {@link TitleBuilder} instance inside the {@link FigureBuilder} instance.
@@ -121,7 +121,7 @@ public interface Plot {
      * @return  an instance of the {@link LabelBuilder}. The x-axis label is 
      * automatically set.
      */
-    LabelBuilder xLabel(String label);
+    LabelBuilder setXLabel(String label);
 
     /**
      * Set the label for the "y-axis" inside the {@link FigureBuilder}.
@@ -134,7 +134,7 @@ public interface Plot {
      * @return  an instance of the {@link LabelBuilder}. The y-axis label is 
      * automatically set.
      */
-    LabelBuilder yLabel(String label);
+    LabelBuilder setYLabel(String label);
 
     /**
      * Set a {@link LabelBuilder} instance inside the {@link FigureBuilder} instance.
@@ -155,7 +155,7 @@ public interface Plot {
      * @param arg   boolean variable to set the grid ({@code true}) or not ({@code false})
      * @return  an instance of the {@link GridBuilder}
      */
-    GridBuilder grid(boolean arg);
+    GridBuilder setGrid(boolean arg);
 
     /**
      * Set a {@link GridBuilder} instance inside the {@link FigureBuilder} instance.
@@ -176,7 +176,7 @@ public interface Plot {
      * @param value     the type of scale to be used for the x-axis
      * @return  an instance of the {@link ScaleBuilder}. 
      */
-    ScaleBuilder xScale(ScaleType value);
+    ScaleBuilder setXScale(ScaleType value);
 
     /**
      * Set the scale for the "y-axis" inside the {@link FigureBuilder}.
@@ -188,7 +188,7 @@ public interface Plot {
      * @param value     the type of scale to be used for the y-axis
      * @return  an instance of the {@link ScaleBuilder}. 
      */
-    ScaleBuilder yScale(ScaleType value);
+    ScaleBuilder setYScale(ScaleType value);
 
     /**
      * Set the limits for the "x-axis" inside the {@link FigureBuilder}.
@@ -201,7 +201,7 @@ public interface Plot {
      * @param xMax     the maximum view limit for the x-axis
      * @return  an instance of the {@link LimitBuilder}. 
      */
-    LimitBuilder xLim(Number xMin, Number xMax);
+    LimitBuilder setXLim(Number xMin, Number xMax);
 
     /**
      * Set the limits for the "y-axis" inside the {@link FigureBuilder}.
@@ -214,7 +214,7 @@ public interface Plot {
      * @param yMax     the maximum view limit for the y-axis
      * @return  an instance of the {@link LimitBuilder}. 
      */
-    LimitBuilder yLim(Number ymin, Number ymax);
+    LimitBuilder setYLim(Number ymin, Number ymax);
 
     /**
      * Set the ticks for the "x-axis" inside the {@link FigureBuilder}.
@@ -292,7 +292,7 @@ public interface Plot {
      * @return  an instance of the {@link TextBuilder}. The text box is automatically
      * set at the given location.
      */
-    TextBuilder text(double x, double y, String s);
+    TextBuilder setText(double x, double y, String s);
 
     /**
      * Set a text inside the {@link FigureBuilder} instance.
@@ -304,7 +304,7 @@ public interface Plot {
     TextBuilder setText();
 
     /**
-     * Plot some 2D lines.
+     * Plot a 2D line.
      * <p>This method is used to call the generic plot method. All the main arguments
      * and kwargs should be defined in a sequential way with additional calls on 
      * the same object.</p>

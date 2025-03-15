@@ -31,7 +31,7 @@ public class TicksBuilderImpl implements TicksBuilder {
     // Variable defining the builder for all the **kwargs
     private final TextArgsBuilder<TicksBuilder> kwargsBuilder = new TextArgsBuilderImpl<TicksBuilder>(innerBuilder);
 
-    // Variable to distinguish between the use of the "xticks" or "yticks" methods
+    // Variable to distinguish between the use of the "set_xticks", "set_yticks" and "set_zticks" methods
     private String methodName;
 
     // Default constructor
@@ -39,8 +39,6 @@ public class TicksBuilderImpl implements TicksBuilder {
 
     // Public constructor
     public TicksBuilderImpl(String methodName) {
-        // Add labels without ticks causes an error, that's why made ticks as mandatory parameter
-        // matplotlib.units.ConversionError: Failed to convert value(s) to axis units: ['a', 'b']
         this.methodName = methodName;
     }
 
@@ -62,8 +60,7 @@ public class TicksBuilderImpl implements TicksBuilder {
 
     @Override
     public TicksBuilder labels(List<String> labels) {
-        innerBuilder.addToArgs(labels);
-        return this;
+        return innerBuilder.addToArgs(labels);
     }
 
     // **kwargs section
@@ -133,8 +130,8 @@ public class TicksBuilderImpl implements TicksBuilder {
     }
 
     @Override
-    public TicksBuilder position(double x, double y) {
-        return kwargsBuilder.position(x, y);
+    public TicksBuilder position(double x, double y, double z) {
+        return kwargsBuilder.position(x, y, z);
     }
 
     @Override
@@ -170,6 +167,11 @@ public class TicksBuilderImpl implements TicksBuilder {
     @Override
     public TicksBuilder y(double arg) {
         return kwargsBuilder.y(arg);
+    }
+
+    @Override
+    public TicksBuilder z(double arg) {
+        return kwargsBuilder.z(arg);
     }
 
     // Implement the builder interface methods

@@ -12,23 +12,15 @@ import com.github.sh0nk.matplotlib4j.enums.ScaleType;
 public class ScaleBuilderImpl implements ScaleBuilder {
 
     // Variable defining the builder for the main method
-    private CompositeBuilder<ScaleBuilder> innerBuilder = new CompositeBuilder<>(this);
+    private final CompositeBuilder<ScaleBuilder> innerBuilder = new CompositeBuilder<>(this);
 
     // Variable to distinguish between the use of the "xscale" or "yscale" methods
-    private String methodName;
+    private final String methodName;
 
     // Public constructor
     public ScaleBuilderImpl(String methodName) {
         this.methodName = methodName;
     }
-
-    // public static ScaleBuilderImpl xScaleBuilder(ScaleType scale) {
-    //     return new ScaleBuilderImpl(scale, "xscale");
-    // }
-
-    // public static ScaleBuilderImpl yScaleBuilder(ScaleType scale) {
-    //     return new ScaleBuilderImpl(scale, "yscale");
-    // }
 
     // *args section
     @Override

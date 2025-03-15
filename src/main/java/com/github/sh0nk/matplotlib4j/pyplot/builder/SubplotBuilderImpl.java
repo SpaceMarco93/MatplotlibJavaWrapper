@@ -26,6 +26,7 @@ public class SubplotBuilderImpl implements SubplotBuilder {
     // Variable defining the builder for all the **kwargs
     private final AxesArgsBuilder<SubplotBuilder> kwargsBuilder = new AxesArgsBuilderImpl<>(innerBuilder);
 
+    // Public constructor
     public SubplotBuilderImpl() {}
 
     // *args section
