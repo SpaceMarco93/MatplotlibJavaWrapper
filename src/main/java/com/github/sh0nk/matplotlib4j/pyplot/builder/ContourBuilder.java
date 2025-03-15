@@ -66,7 +66,7 @@ public interface ContourBuilder extends Builder2D {
      * Set the colors of the contour lines.
      * <p> This method is used to set the colors for the contour lines/levels</p>
      * 
-     * @param arg   an instance of the {@lin ColorType} enum providing the color name
+     * @param arg   an instance of the {@link ColorType} enum providing the color name
      * @return  the instance of {@link ContourBuilder} for method chain  
      */
     ContourBuilder colors(ColorType arg);

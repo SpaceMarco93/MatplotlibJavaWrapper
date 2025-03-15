@@ -142,7 +142,7 @@ public interface Axes {
      * set of axes defined for each figure instance.</p>
      * <p>Use additional call on this instance to set the **kwargs. </p>
      *   
-     * @param value     the type of scale to be used for the x-axis
+     * @param scale     the type of scale to be used for the x-axis
      * @return  an instance of the {@link ScaleBuilder}. 
      */
     ScaleBuilder setXScale(ScaleType scale);
@@ -154,7 +154,7 @@ public interface Axes {
      * set of axes defined for each figure instance.</p>
      * <p>Use additional call on this instance to set the **kwargs. </p>
      *   
-     * @param value     the type of scale to be used for the y-axis
+     * @param scale     the type of scale to be used for the y-axis
      * @return  an instance of the {@link ScaleBuilder}. 
      */
     ScaleBuilder setYScale(ScaleType scale);
@@ -166,7 +166,7 @@ public interface Axes {
      * set of axes defined for each figure instance.</p>
      * <p>Use additional call on this instance to set the **kwargs. </p>
      *   
-     * @param value     the type of scale to be used for the z-axis
+     * @param scale     the type of scale to be used for the z-axis
      * @return  an instance of the {@link ScaleBuilder}. 
      */
     ScaleBuilder setZScale(ScaleType scale);
@@ -182,7 +182,7 @@ public interface Axes {
      * @param xMax     the maximum view limit for the x-axis
      * @return  an instance of the {@link LimitBuilder}. 
      */
-    LimitBuilder setXLim(Number xmin, Number xmax);
+    LimitBuilder setXLim(Number xMin, Number xMax);
 
     /**
      * Set the limits for the "y-axis" inside the {@link FigureBuilder}.
@@ -195,7 +195,7 @@ public interface Axes {
      * @param yMax     the maximum view limit for the y-axis
      * @return  an instance of the {@link LimitBuilder}. 
      */
-    LimitBuilder setYLim(Number ymin, Number ymax);
+    LimitBuilder setYLim(Number yMin, Number yMax);
 
     /**
      * Set the limits for the "z-axis" inside the {@link FigureBuilder}.
@@ -204,11 +204,11 @@ public interface Axes {
      * a single set of axes defined for each figure instance.</p>
      * <p>Use additional call on this instance to set the **kwargs. </p>
      *   
-     * @param yMin     the minimum view limit for the y-axis
-     * @param yMax     the maximum view limit for the y-axis
+     * @param zMin     the minimum view limit for the z-axis
+     * @param zMax     the maximum view limit for the z-axis
      * @return  an instance of the {@link LimitBuilder}. 
      */
-    LimitBuilder setZLim(Number ymin, Number ymax);
+    LimitBuilder setZLim(Number zMin, Number zMax);
 
     /**
      * Set the ticks for the "x-axis" inside the {@link FigureBuilder}.
@@ -220,7 +220,7 @@ public interface Axes {
      * @param xTicks     the list of ticks to be set for the x-axis
      * @return  an instance of the {@link TicksBuilder}. 
      */
-    TicksBuilder setXTicks(List<? extends Number> ticks);
+    TicksBuilder setXTicks(List<? extends Number> xTicks);
 
     /**
      * Set the ticks and labels for the "x-axis" inside the {@link FigureBuilder}.
@@ -246,7 +246,7 @@ public interface Axes {
      * @param yTicks     the list of ticks to be set for the y-axis
      * @return  an instance of the {@link TicksBuilder}. 
      */
-    TicksBuilder setYTicks(List<? extends Number> ticks);
+    TicksBuilder setYTicks(List<? extends Number> yTicks);
 
     /**
      * Set the ticks and labels for the "y-axis" inside the {@link FigureBuilder}.
@@ -269,10 +269,10 @@ public interface Axes {
      * a single set of axes defined for each figure instance.</p>
      * <p>Use additional call on this instance to set the **kwargs. </p>
      *   
-     * @param yTicks     the list of ticks to be set for the z-axis
+     * @param zTicks     the list of ticks to be set for the z-axis
      * @return  an instance of the {@link TicksBuilder}. 
      */
-    TicksBuilder setZTicks(List<? extends Number> ticks);
+    TicksBuilder setZTicks(List<? extends Number> zTicks);
 
     /**
      * Set the ticks and labels for the "z-axis" inside the {@link FigureBuilder}.
@@ -281,7 +281,7 @@ public interface Axes {
      * a single set of axes defined for each figure instance.</p>
      * <p>Use additional call on this instance to set the **kwargs. </p>
      *   
-     * @param yTicks   the list of ticks to be set for the z-axis
+     * @param zTicks   the list of ticks to be set for the z-axis
      * @param labels   the list of labels associated to the ticks (they should 
      *                 have the same size of the ticks)
      * @return  an instance of the {@link TicksBuilder}. 

@@ -52,7 +52,7 @@ public interface HistBuilder extends Builder2D, PatchBuilder<HistBuilder> {
      * <p>If bins is a sequence, it defines the bin edges, including the left edge 
      * of the first bin and the right edge of the last bin.</p>
      * 
-     * @param arg   the list of bin edges
+     * @param nums   the list of bin edges
      * @return  the instance of {@link HistBuilder} for method chain   
      */
     HistBuilder bins(List<? extends Integer> nums);
@@ -108,7 +108,7 @@ public interface HistBuilder extends Builder2D, PatchBuilder<HistBuilder> {
      * <p>If True, then a histogram is computed where each bin gives the counts 
      * in that bin plus all bins for smaller values. The last bin gives the total 
      * number of datapoints.</p>
-     * If density is also True then the histogram is normalized such that the last 
+     * <p>If density is also True then the histogram is normalized such that the last 
      * bin equals 1. </p>
      * 
      * @param arg   boolean variable to select if the cumulative mode is enabled
@@ -192,7 +192,7 @@ public interface HistBuilder extends Builder2D, PatchBuilder<HistBuilder> {
     /**
      * Set the color for each dataset.
      * 
-     * @param arg   an array of {@link ColorType} objects defining a specific color
+     * @param args  an array of {@link ColorType} objects defining a specific color
      *              for each dataset 
      * @return  the instance of {@link HistBuilder} for method chain
      */
@@ -209,7 +209,7 @@ public interface HistBuilder extends Builder2D, PatchBuilder<HistBuilder> {
     /**
      * Set the labels for each dataset.
      * 
-     * @param arg   an array of string defining a specific label for each dataset 
+     * @param args  an array of string defining a specific label for each dataset 
      * @return  the instance of {@link HistBuilder} for method chain
      */
     HistBuilder label(String... args);

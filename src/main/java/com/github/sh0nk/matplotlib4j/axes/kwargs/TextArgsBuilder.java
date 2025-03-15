@@ -52,7 +52,7 @@ public interface TextArgsBuilder<T extends Builder3D> extends KwargsBuilder {
     /**
      * Set the font size.
      * 
-     * @param arg   an instance of the {@link FontSyzeType} enum providing the 
+     * @param arg   an instance of the {@link FontSizeType} enum providing the 
      *              type of font size   
      * @return  the instance of {@link T} builder for method chain
      */
@@ -182,7 +182,7 @@ public interface TextArgsBuilder<T extends Builder3D> extends KwargsBuilder {
     /**
      * Set the vertical alignment relative to the anchor point.
      * 
-     * @param arg   an instance of the {@link VarticalAlignmentType} enum providing 
+     * @param arg   an instance of the {@link VerticalAlignmentType} enum providing 
      *              the vertical alignment relative to the anchor point
      * @return
      */

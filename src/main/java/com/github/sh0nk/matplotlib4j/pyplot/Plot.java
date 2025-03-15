@@ -159,7 +159,7 @@ public interface Plot {
 
     /**
      * Set a {@link GridBuilder} instance inside the {@link FigureBuilder} instance.
-     * This method is used to set the labels to set a grid inside axes associated 
+     * <p>This method is used to set the labels to set a grid inside axes associated 
      * to the {@link FigureBuilder} instance.</p>
      * 
      * @return  an instance of the {@link GridBuilder}.
@@ -214,7 +214,7 @@ public interface Plot {
      * @param yMax     the maximum view limit for the y-axis
      * @return  an instance of the {@link LimitBuilder}. 
      */
-    LimitBuilder setYLim(Number ymin, Number ymax);
+    LimitBuilder setYLim(Number yMin, Number yMax);
 
     /**
      * Set the ticks for the "x-axis" inside the {@link FigureBuilder}.
@@ -252,7 +252,7 @@ public interface Plot {
      * @param yTicks     the list of ticks to be set for the y-axis
      * @return  an instance of the {@link TicksBuilder}. 
      */
-    TicksBuilder setYTicks(List<Number> yticks);
+    TicksBuilder setYTicks(List<Number> yTicks);
 
     /**
      * Set the ticks and labels for the "y-axis" inside the {@link FigureBuilder}.
@@ -266,7 +266,7 @@ public interface Plot {
      *                 have the same size of the ticks)
      * @return  an instance of the {@link TicksBuilder}. 
      */
-    TicksBuilder setYTicksAndLabels(List<Number> yticks, List<String> labels);
+    TicksBuilder setYTicksAndLabels(List<Number> yTicks, List<String> labels);
 
     /**
      * Set the ticks for a single axis inside the {@link FigureBuilder}.
@@ -560,7 +560,7 @@ public interface Plot {
      * should be called anytime before the call to the "plot" method. Indeed,
      * the method returns an instance of the axes occupying the specific slot 
      * in the grid.</p>
-     * <p>Additional kwargs can be called on the same instance.<7p>
+     * <p>Additional kwargs can be called on the same instance.</p>
      * 
      * @param nRows     number of rows of the subplot grid
      * @param nCols     number of columns of the subplot grid

@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.github.sh0nk.matplotlib4j.pyplot.Plot;
+
 /**
  * This class is not implementing any specific interface. This class is only
  * implementing the generic Builder interface and it is used in case an additional

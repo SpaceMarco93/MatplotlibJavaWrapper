@@ -19,6 +19,6 @@ public interface TextBuilder extends Builder3D, TextArgsBuilder<TextBuilder> {
      * @param text  the text content
      * @return  the instance of {@link TextBuilder} for method chain
      */
-    TextBuilder add(Number x, Number y, Number z, String fmt);
+    TextBuilder add(Number x, Number y, Number z, String text);
 
 }
