@@ -9,7 +9,7 @@ plugins {
 
 // Group and version information to publish the artifact
 group = 'com.github.sh0nk'
-version = '2.0.0'
+version = '2.2.0'
 
 publishing {
     repositories {

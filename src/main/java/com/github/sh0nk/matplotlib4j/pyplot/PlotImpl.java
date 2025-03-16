@@ -5,6 +5,8 @@ import com.github.sh0nk.matplotlib4j.PythonConfig;
 import com.github.sh0nk.matplotlib4j.PythonExecutionException;
 import com.github.sh0nk.matplotlib4j.enums.ScaleType;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.ArgsBuilderImpl;
+import com.github.sh0nk.matplotlib4j.pyplot.builder.AxesBuilder;
+import com.github.sh0nk.matplotlib4j.pyplot.builder.AxesBuilderImpl;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder2D;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.ContourBuilder;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.ContourBuilderImpl;
@@ -413,6 +415,13 @@ public class PlotImpl implements Plot {
     @Override
     public void close(String name) {
         registeredBuilders.add(new ArgsBuilderImpl("close", name));
+    }
+
+    @Override
+    public AxesBuilder gca() {
+        AxesBuilder builder = new AxesBuilderImpl();
+        registeredBuilders.add(builder);
+        return builder;
     }
 
     // Methods to wrap the Java code in the Python script

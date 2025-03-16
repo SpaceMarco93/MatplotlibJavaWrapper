@@ -3,6 +3,7 @@ package com.github.sh0nk.matplotlib4j.pyplot;
 import com.github.sh0nk.matplotlib4j.PythonConfig;
 import com.github.sh0nk.matplotlib4j.PythonExecutionException;
 import com.github.sh0nk.matplotlib4j.enums.ScaleType;
+import com.github.sh0nk.matplotlib4j.pyplot.builder.AxesBuilder;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.ContourBuilder;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.FigureBuilder;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.GridBuilder;
@@ -374,6 +375,13 @@ public interface Plot {
      * @return  an instance of the {@link ContourBuilder}
      */
     ContourBuilder contour(List<? extends Number> X, List<? extends Number> Y, List<? extends List<? extends Number>> Z);
+
+    /**
+     * Get the current Axes.
+     * 
+     * @return  an instance of the {@link AxesBuilder}
+     */
+    AxesBuilder gca();
 
     /**
      * Create a histogram object.

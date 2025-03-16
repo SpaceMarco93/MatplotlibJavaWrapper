@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.github.sh0nk.matplotlib4j.PythonConfig;
 import com.github.sh0nk.matplotlib4j.PythonExecutionException;
+import com.github.sh0nk.matplotlib4j.axes.builder.AxesBuilder;
 import com.github.sh0nk.matplotlib4j.axes.builder.FigureBuilder;
 import com.github.sh0nk.matplotlib4j.axes.builder.GridBuilder;
 import com.github.sh0nk.matplotlib4j.axes.builder.LabelBuilder;
@@ -16,6 +17,7 @@ import com.github.sh0nk.matplotlib4j.axes.builder.ScaleBuilder;
 import com.github.sh0nk.matplotlib4j.axes.builder.TextBuilder;
 import com.github.sh0nk.matplotlib4j.axes.builder.TicksBuilder;
 import com.github.sh0nk.matplotlib4j.axes.builder.TitleBuilder;
+import com.github.sh0nk.matplotlib4j.enums.AspectType;
 import com.github.sh0nk.matplotlib4j.enums.ScaleType;
 
 /**
@@ -59,6 +61,15 @@ public interface Axes {
      * @return  an instance of the {@link FigureBuilder} class
      */
     FigureBuilder figure3D(String windowTitle);
+
+    /**
+     * Set the axes aspect ratio.
+     * 
+     * @param arg   an instance of the enum {@link AspectType} to set the aspect
+     *              ratio
+     * @return  an instance of the {@link AxesBuilder} for method chain
+     */
+    AxesBuilder setAspect(AspectType arg);
 
     /**
      * Set the legend inside the {@link FigureBuilder} instance.

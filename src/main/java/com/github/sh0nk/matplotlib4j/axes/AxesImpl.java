@@ -8,6 +8,8 @@ import com.github.sh0nk.matplotlib4j.PyCommand;
 import com.github.sh0nk.matplotlib4j.PythonConfig;
 import com.github.sh0nk.matplotlib4j.PythonExecutionException;
 import com.github.sh0nk.matplotlib4j.axes.builder.ArgsBuilderImpl;
+import com.github.sh0nk.matplotlib4j.axes.builder.AxesBuilder;
+import com.github.sh0nk.matplotlib4j.axes.builder.AxesBuilderImpl;
 import com.github.sh0nk.matplotlib4j.axes.builder.Builder3D;
 import com.github.sh0nk.matplotlib4j.axes.builder.FigureBuilder;
 import com.github.sh0nk.matplotlib4j.axes.builder.FigureBuilderImpl;
@@ -31,6 +33,7 @@ import com.github.sh0nk.matplotlib4j.axes.builder.TicksBuilder;
 import com.github.sh0nk.matplotlib4j.axes.builder.TicksBuilderImpl;
 import com.github.sh0nk.matplotlib4j.axes.builder.TitleBuilder;
 import com.github.sh0nk.matplotlib4j.axes.builder.TitleBuilderImpl;
+import com.github.sh0nk.matplotlib4j.enums.AspectType;
 import com.github.sh0nk.matplotlib4j.enums.ScaleType;
 import com.google.common.base.Joiner;
 
@@ -257,6 +260,14 @@ public class AxesImpl implements Axes {
     public SaveFigBuilder saveFig(String fname) {
         SaveFigBuilder builder = new SaveFigBuilderImpl();
         builder.fName(fname);
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
+    public AxesBuilder setAspect(AspectType arg) {
+        AxesBuilder builder = new AxesBuilderImpl();
+        builder.setAspect(arg);
         registeredBuilders.add(builder);
         return builder;
     }
