@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.github.sh0nk.matplotlib4j.axes.kwargs.QuiverArgsBuilder;
 import com.github.sh0nk.matplotlib4j.axes.kwargs.QuiverArgsBuilderImpl;
-import com.github.sh0nk.matplotlib4j.enums.AnglesType;
 import com.github.sh0nk.matplotlib4j.enums.CapStyleType;
 import com.github.sh0nk.matplotlib4j.enums.ColorType;
 import com.github.sh0nk.matplotlib4j.enums.HatchType;
@@ -12,7 +11,6 @@ import com.github.sh0nk.matplotlib4j.enums.JoinStyleType;
 import com.github.sh0nk.matplotlib4j.enums.LineStyleType;
 import com.github.sh0nk.matplotlib4j.enums.ParametrizedLineStyleType;
 import com.github.sh0nk.matplotlib4j.enums.PivotType;
-import com.github.sh0nk.matplotlib4j.enums.ScaleUnitsType;
 
 /**
  * This class is implementing all the methods defined in the relative interface
@@ -62,63 +60,28 @@ public class QuiverBuilderImpl implements QuiverBuilder {
     }
 
     @Override
-    public QuiverBuilder angles(AnglesType anglesType) {
-        return innerBuilder.addToKwargs("angles", anglesType.getAngles());
-    }
-
-    @Override
     public QuiverBuilder pivot(PivotType pivotType) {
         return innerBuilder.addToKwargs("pivot", pivotType.getPivot());
     }
 
     @Override
-    public QuiverBuilder scale(double scale) {
-        return innerBuilder.addToKwargs("scale", scale);
-    }
-
-    @Override
-    public QuiverBuilder scaleUnits(ScaleUnitsType scaleUnitsType) {
-        return innerBuilder.addToKwargs("scale_units", scaleUnitsType.getScaleUnit());
-    }
-
-    @Override
-    public QuiverBuilder units(ScaleUnitsType unitsType) {
-        return innerBuilder.addToKwargs("units", unitsType.getScaleUnit());
-    }
-
-    @Override
-    public QuiverBuilder width(double width) {
-        return innerBuilder.addToKwargs("width", width);
-    }
-
-    @Override
-    public QuiverBuilder headWidth(double headWidth) {
-        return innerBuilder.addToKwargs("headwidth", headWidth);
-    }
-
-    @Override
-    public QuiverBuilder headLength(double headLength) {
-        return innerBuilder.addToKwargs("headlength", headLength);
-    }
-
-    @Override
-    public QuiverBuilder headAxisLength(double headAxisLength) {
-        return innerBuilder.addToKwargs("headaxislength", headAxisLength);
-    }
-
-    @Override
-    public QuiverBuilder minShaft(double minShaft) {
-        return innerBuilder.addToKwargs("minshaft", minShaft);
-    }
-
-    @Override
-    public QuiverBuilder minLength(double minLength) {
-        return innerBuilder.addToKwargs("minlength", minLength);
-    }
-
-    @Override
     public QuiverBuilder color(ColorType colorType) {
         return innerBuilder.addToKwargs("color", colorType.getColor());
+    }
+
+    @Override
+    public QuiverBuilder arrowLengthRatio(double arg) {
+        return innerBuilder.addToKwargs("arrow_length_ratio", arg);
+    }
+
+    @Override
+    public QuiverBuilder length(double arg) {
+        return innerBuilder.addToKwargs("length", arg);
+    }
+
+    @Override
+    public QuiverBuilder normalize(boolean arg) {
+        return innerBuilder.addToKwargs("normalize", arg);
     }
 
     // **kwargs section
