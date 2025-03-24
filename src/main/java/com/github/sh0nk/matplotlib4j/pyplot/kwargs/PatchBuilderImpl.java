@@ -5,7 +5,6 @@ import com.github.sh0nk.matplotlib4j.enums.LineStyleType;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.Builder2D;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.CompositeBuilder;
 
-
 /**
  * This class is implementing all the methods defined in the relative interface
  * {@link PatchBuilder}.

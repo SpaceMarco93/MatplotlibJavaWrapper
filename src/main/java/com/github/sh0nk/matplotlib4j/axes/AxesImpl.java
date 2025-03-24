@@ -23,6 +23,8 @@ import com.github.sh0nk.matplotlib4j.axes.builder.LimitBuilder;
 import com.github.sh0nk.matplotlib4j.axes.builder.LimitBuilderImpl;
 import com.github.sh0nk.matplotlib4j.axes.builder.PlotBuilder;
 import com.github.sh0nk.matplotlib4j.axes.builder.PlotBuilderImpl;
+import com.github.sh0nk.matplotlib4j.axes.builder.QuiverBuilder;
+import com.github.sh0nk.matplotlib4j.axes.builder.QuiverBuilderImpl;
 import com.github.sh0nk.matplotlib4j.axes.builder.SaveFigBuilder;
 import com.github.sh0nk.matplotlib4j.axes.builder.SaveFigBuilderImpl;
 import com.github.sh0nk.matplotlib4j.axes.builder.ScaleBuilder;
@@ -252,6 +254,22 @@ public class AxesImpl implements Axes {
     public PlotBuilder plot(List<? extends Number> x, List<? extends Number> y, List<? extends Number> z, String fmt) {
         PlotBuilder builder = new PlotBuilderImpl();
         builder.add(x, y, z, fmt);
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
+    public QuiverBuilder quiver(List<Number> u, List<Number> v) {
+        QuiverBuilder builder = new QuiverBuilderImpl();
+        builder.add(u, v);
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
+    public QuiverBuilder quiver(List<Number> x, List<Number> y, List<Number> u, List<Number> v) {
+        QuiverBuilder builder = new QuiverBuilderImpl();
+        builder.add(x, y, u, v);
         registeredBuilders.add(builder);
         return builder;
     }

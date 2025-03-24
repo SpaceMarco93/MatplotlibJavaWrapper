@@ -13,6 +13,7 @@ import com.github.sh0nk.matplotlib4j.pyplot.builder.LegendBuilder;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.LimitBuilder;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.LogLogBuilder;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.PlotBuilder;
+import com.github.sh0nk.matplotlib4j.pyplot.builder.QuiverBuilder;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.SaveFigBuilder;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.ScaleBuilder;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.SemiLogXBuilder;
@@ -340,6 +341,37 @@ public interface Plot {
      * @return  an instance of the {@link PlotBuilder}
      */
     PlotBuilder plot(List<? extends Number> x, List<? extends Number> y, String fmt);
+
+    /**
+     * Create a vector providing its coordinates.
+     * <p> This method is used to add the arrow coordinates to the {@link QuiverBuilder}
+     * instance. The two lists should have the same size. </p>
+     * <p> Using this method the locations where the arrows are places will be 
+     * generated as a uniform integer meshgrid based on the dimensions of U and V.
+     * If X and Y are 1D but U, V are 2D, X, Y are expanded to 2D using 
+     * X, Y = np.meshgrid(X, Y). In this case len(X) and len(Y) must match the 
+     * column and row dimensions of U and V.</p>
+     * 
+     * @param u     the list of x-components of the arrow vectors
+     * @param v     the list of y-components of the arrow vectors
+     * @return  the instance of {@link QuiverBuilder} for method chain
+     */
+    QuiverBuilder quiver(List<Number> u, List<Number> v);
+
+    /**
+     * Create a vector providing its coordinates and the points where should be placed.
+     * <p> This method is used to add the arrow coordinates to the {@link QuiverBuilder}
+     * instance. The two lists should have the same size. </p>
+     * <p> Moreover, the user must provide also the coordinates of the points where
+     * the arrows are placed. It is obvious that the size should be all the same.</p>
+     * 
+     * @param x     the list of x-coordinates of the points where arrows are placed
+     * @param y     the list of y-coordinates of the points where arrows are placed
+     * @param u     the list of x-components of the arrow vectors
+     * @param v     the list of y-components of the arrow vectors
+     * @return  the instance of {@link QuiverBuilder} for method chain
+     */
+    QuiverBuilder quiver(List<Number> x, List<Number> y, List<Number> u, List<Number> v);
 
     /**
      * Plot contour lines.

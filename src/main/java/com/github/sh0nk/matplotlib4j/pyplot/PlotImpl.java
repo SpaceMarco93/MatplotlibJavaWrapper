@@ -26,6 +26,8 @@ import com.github.sh0nk.matplotlib4j.pyplot.builder.LogLogBuilder;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.LogLogBuilderImpl;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.PlotBuilder;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.PlotBuilderImpl;
+import com.github.sh0nk.matplotlib4j.pyplot.builder.QuiverBuilder;
+import com.github.sh0nk.matplotlib4j.pyplot.builder.QuiverBuilderImpl;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.SaveFigBuilder;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.SaveFigBuilderImpl;
 import com.github.sh0nk.matplotlib4j.pyplot.builder.ScaleBuilder;
@@ -265,6 +267,22 @@ public class PlotImpl implements Plot {
     public PlotBuilder plot(List<? extends Number> x, List<? extends Number> y, String fmt) {
         PlotBuilder builder = new PlotBuilderImpl();
         builder.add(x, y, fmt);
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
+    public QuiverBuilder quiver(List<Number> u, List<Number> v) {
+        QuiverBuilder builder = new QuiverBuilderImpl();
+        builder.add(u, v);
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
+    public QuiverBuilder quiver(List<Number> x, List<Number> y, List<Number> u, List<Number> v) {
+        QuiverBuilder builder = new QuiverBuilderImpl();
+        builder.add(x, y, u, v);
         registeredBuilders.add(builder);
         return builder;
     }
