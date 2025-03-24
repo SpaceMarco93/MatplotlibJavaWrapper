@@ -20,8 +20,8 @@ public enum FontWeightType {
 
     private String fontWeight;
 
-    private FontWeightType(String fontWeigth){
-        this.fontWeight = fontWeigth;
+    private FontWeightType(String fontWeight){
+        this.fontWeight = fontWeight;
     }
 
     public String getFontWeight() {

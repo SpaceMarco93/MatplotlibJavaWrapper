@@ -72,7 +72,7 @@ public class TextArgsBuilderImpl<T extends Builder3D> implements TextArgsBuilder
 
     @Override
     public T fontWeight(FontWeightType arg) {
-        return innerBuilder.addToKwargs("fontweigth", arg.getFontWeight());
+        return innerBuilder.addToKwargs("fontweight", arg.getFontWeight());
     }
 
     @Override
