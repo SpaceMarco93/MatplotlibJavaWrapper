@@ -259,17 +259,17 @@ public class AxesImpl implements Axes {
     }
 
     @Override
-    public QuiverBuilder quiver(List<Number> u, List<Number> v) {
+    public QuiverBuilder quiver(List<Number> u, List<Number> v, List<Number> w) {
         QuiverBuilder builder = new QuiverBuilderImpl();
-        builder.add(u, v);
+        builder.add(u, v, w);
         registeredBuilders.add(builder);
         return builder;
     }
 
     @Override
-    public QuiverBuilder quiver(List<Number> x, List<Number> y, List<Number> u, List<Number> v) {
+    public QuiverBuilder quiver(List<Number> x, List<Number> y, List<Number> z, List<Number> u, List<Number> v, List<Number> w) {
         QuiverBuilder builder = new QuiverBuilderImpl();
-        builder.add(x, y, u, v);
+        builder.add(x, y, z, u, v, w);
         registeredBuilders.add(builder);
         return builder;
     }

@@ -34,25 +34,30 @@ public class QuiverBuilderImpl implements QuiverBuilder {
 
     // *args section
     @Override
-    public QuiverBuilder add(List<Number> u, List<Number> v) {
-        innerBuilder.addToArgs(u);
-        return innerBuilder.addToArgs(v);
-    }
-
-    @Override
-    public QuiverBuilder add(List<Number> x, List<Number> y, List<Number> u, List<Number> v) {
-        innerBuilder.addToArgs(x);
-        innerBuilder.addToArgs(y);
-        innerBuilder.addToArgs(u);
-        return innerBuilder.addToArgs(v);
-    }
-
-    @Override
-    public QuiverBuilder add(List<Number> x, List<Number> y, List<Number> u, List<Number> v, List<Number> c) {
-        innerBuilder.addToArgs(x);
-        innerBuilder.addToArgs(y);
+    public QuiverBuilder add(List<Number> u, List<Number> v, List<Number> w) {
         innerBuilder.addToArgs(u);
         innerBuilder.addToArgs(v);
+        return innerBuilder.addToArgs(w);
+    }
+
+    @Override
+    public QuiverBuilder add(List<Number> x, List<Number> y, List<Number> z, List<Number> u, List<Number> v, List<Number> w) {
+        innerBuilder.addToArgs(x);
+        innerBuilder.addToArgs(y);
+        innerBuilder.addToArgs(z);
+        innerBuilder.addToArgs(u);
+        innerBuilder.addToArgs(v);
+        return innerBuilder.addToArgs(w);
+    }
+
+    @Override
+    public QuiverBuilder add(List<Number> x, List<Number> y, List<Number> z, List<Number> u, List<Number> v, List<Number> w, List<Number> c) {
+        innerBuilder.addToArgs(x);
+        innerBuilder.addToArgs(y);
+        innerBuilder.addToArgs(z);
+        innerBuilder.addToArgs(u);
+        innerBuilder.addToArgs(v);
+        innerBuilder.addToArgs(w);
         return innerBuilder.addToArgs(c);
     }
 
