@@ -17,35 +17,33 @@ import com.github.sh0nk.matplotlib4j.enums.ScaleUnitsType;
 public interface QuiverBuilder extends Builder3D, QuiverArgsBuilder<QuiverBuilder> {
 
     /**
-     * Add the x-coordinates and y-coordinates of the arrows to be displayed.
+     * Add the x-coordinates, y-coordinates and z-coordinates of the arrows to be displayed.
      * <p> This method is used to add the arrow coordinates to the {@link QuiverBuilder}
-     * instance. The two lists should have the same size. </p>
-     * <p> Using this method the locations where the arrows are places will be 
-     * generated as a uniform integer meshgrid based on the dimensions of U and V.
-     * If X and Y are 1D but U, V are 2D, X, Y are expanded to 2D using 
-     * X, Y = np.meshgrid(X, Y). In this case len(X) and len(Y) must match the 
-     * column and row dimensions of U and V.</p>
+     * instance. The three lists should have the same size. </p>
      * 
      * @param u     the list of x-components of the arrow vectors
      * @param v     the list of y-components of the arrow vectors
+     * @param w     the list of z-components of the arrow vectors
      * @return  the instance of {@link QuiverBuilder} for method chain
      */
-    QuiverBuilder add(List<Number> u, List<Number> v);
+    QuiverBuilder add(List<Number> u, List<Number> v, List<Number> w);
 
     /**
      * Add both arrow coordinates and points coordinates where arrows are placed.
      * <p> This method is used to add the arrow coordinates to the {@link QuiverBuilder}
-     * instance. The two lists should have the same size. </p>
+     * instance. The three lists should have the same size. </p>
      * <p> Moreover, the user must provide also the coordinates of the points where
      * the arrows are placed. It is obvious that the size should be all the same.</p>
      * 
      * @param x     the list of x-coordinates of the points where arrows are placed
      * @param y     the list of y-coordinates of the points where arrows are placed
+     * @param z     the list of z-coordinates of the points where arrows are placed
      * @param u     the list of x-components of the arrow vectors
      * @param v     the list of y-components of the arrow vectors
+     * @param w     the list of z-components of the arrow vectors
      * @return  the instance of {@link QuiverBuilder} for method chain
      */
-    QuiverBuilder add(List<Number> x, List<Number> y, List<Number> u, List<Number> v);
+    QuiverBuilder add(List<Number> x, List<Number> y, List<Number> z, List<Number> u, List<Number> v, List<Number> w);
 
     /**
      * Add arrow coordinates, points coordinates where arrows are placed and colors.
@@ -59,13 +57,15 @@ public interface QuiverBuilder extends Builder3D, QuiverArgsBuilder<QuiverBuilde
      * 
      * @param x     the list of x-coordinates of the points where arrows are placed
      * @param y     the list of y-coordinates of the points where arrows are placed
+     * @param z     the list of z-coordinates of the points where arrows are placed
      * @param u     the list of x-components of the arrow vectors
      * @param v     the list of y-components of the arrow vectors
+     * @param w     the list of z-components of the arrow vectors
      * @param c     the list that defines the arrow colors by colormapping via norm 
      *              and cmap
      * @return  the instance of {@link QuiverBuilder} for method chain
      */
-    QuiverBuilder add(List<Number> x, List<Number> y, List<Number> u, List<Number> v, List<Number> c);
+    QuiverBuilder add(List<Number> x, List<Number> y, List<Number> z, List<Number> u, List<Number> v, List<Number> w, List<Number> c);
     
     /**
      * Method for determining the angle of the arrows.
