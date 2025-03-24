@@ -166,7 +166,7 @@ public interface QuiverBuilder extends Builder3D, QuiverArgsBuilder<QuiverBuilde
     /**
      * Set the head width as multiple of shaft width. 
      * 
-     * @param headwidth     head width as multiple of shaft width. 
+     * @param headWidth     head width as multiple of shaft width. 
      * @return  the instance of {@link QuiverBuilder} for method chain
      */
     QuiverBuilder headWidth(double headWidth);
@@ -174,7 +174,7 @@ public interface QuiverBuilder extends Builder3D, QuiverArgsBuilder<QuiverBuilde
     /**
      * Set the head length as multiple of shaft width
      * 
-     * @param headLenght    head length as multiple of shaft width
+     * @param headLength    head length as multiple of shaft width
      * @return  the instance of {@link QuiverBuilder} for method chain
      */
     QuiverBuilder headLength(double headLength);
