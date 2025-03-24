@@ -30,7 +30,7 @@ public interface QuiverArgsBuilder<T extends Builder3D> extends KwargsBuilder {
     /**
      * Set the CapStyle for the collection (for all its elements).
      * 
-     * @param capStyleType      an instance of the {@link CapStyleEnum} enum 
+     * @param capStyleType      an instance of the {@link CapStyleType} enum 
      *                          providing the capstyle to be used for all arrows
      * @return  the instance of {@link T} builder for method chain
      */
